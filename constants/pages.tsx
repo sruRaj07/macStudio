@@ -5,10 +5,12 @@ import {
   RocketDuoToneBlue,
   SettingsDuoToneWhite,
 } from '@/icons'
+import { BarChart3 } from 'lucide-react'
 
 export const PAGE_BREAD_CRUMBS: string[] = [
   'contacts',
   'automations',
+  'analytics',
   'integrations',
   'settings',
 ]
@@ -19,6 +21,7 @@ type Props = {
 
 export const PAGE_ICON: Props = {
   AUTOMATIONS: <AutomationDuoToneBlue />,
+  ANALYTICS: <BarChart3 className="h-5 w-5 text-[#ffb36a]" />,
   CONTACTS: <ContactsDuoToneBlue />,
   INTEGRATIONS: <RocketDuoToneBlue />,
   SETTINGS: <SettingsDuoToneWhite />,

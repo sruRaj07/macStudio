@@ -1,11 +1,10 @@
 'use client'
+
 import {
   onDisconnectIntegration,
   onOAuthInstagram,
 } from '@/actions/integrations'
 import { onUserInfo } from '@/actions/user'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
 import {
   Popover,
   PopoverContent,
@@ -13,24 +12,15 @@ import {
 } from '@/components/ui/popover'
 import { useMutationData } from '@/hooks/use-mutation-data'
 import { useQuery } from '@tanstack/react-query'
-import React from 'react'
+import { Camera, Cloud, ExternalLink, MoreHorizontal, UserRound } from 'lucide-react'
 
 type Props = {
   title: string
   description: string
-  icon: React.ReactNode
   strategy: 'INSTAGRAM' | 'CRM'
 }
 
-const getInitials = (value?: string | null) =>
-  value
-    ?.split(/[\s._-]+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase())
-    .join('') || 'IG'
-
-const IntegrationCard = ({ description, icon, strategy, title }: Props) => {
+const IntegrationCard = ({ description, strategy, title }: Props) => {
   const onInstaOAuth = () => onOAuthInstagram(strategy)
   const { mutate: disconnectMutation, isPending: isDisconnecting } =
     useMutationData(
@@ -47,86 +37,75 @@ const IntegrationCard = ({ description, icon, strategy, title }: Props) => {
   const integrated = data?.data?.integrations.find(
     (integration) => integration.name === strategy
   )
-  const profileLabel =
-    integrated?.instagramDisplayName || integrated?.instagramUsername || title
+
+  const username = integrated?.instagramUsername || 'creator_handle'
+  const isInstagram = strategy === 'INSTAGRAM'
 
   return (
-    <div className="dashboard-panel rounded-[1.75rem] gap-x-5 p-5 flex items-center justify-between">
-      {icon}
-      <div className="flex flex-col flex-1">
-        <h3 className="text-xl text-white"> {title}</h3>
-        <p className="text-zinc-400 text-base ">{description}</p>
+    <article className="mac-integration-card">
+      <div className={isInstagram ? 'mac-integration-icon instagram' : 'mac-integration-icon salesforce'}>
+        {isInstagram ? <Camera className="h-6 w-6" /> : <Cloud className="h-6 w-6" />}
       </div>
-      {integrated && strategy === 'INSTAGRAM' ? (
-        <div className="flex items-center gap-3">
-          <div className="text-right">
-            <p className="text-sm font-medium text-[#ffb36a]">Connected</p>
-            <p className="text-xs text-zinc-400">
-              @{integrated.instagramUsername || 'instagram'}
-            </p>
+
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-wrap items-center gap-3">
+          <h2 className="text-xl font-black text-white">{title}</h2>
+          {integrated && isInstagram && (
+            <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-emerald-400">
+              ● Connected
+            </span>
+          )}
+        </div>
+        {!integrated && <p className="mt-2 text-base font-medium text-zinc-600">{description}</p>}
+      </div>
+
+      {integrated && isInstagram ? (
+        <div className="flex items-center gap-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#ff5b00] text-lg font-black text-white shadow-[0_0_0_2px_rgba(255,255,255,0.08)]">
+            R
           </div>
+          <p className="text-base font-medium text-zinc-300">@{username}</p>
           <Popover>
             <PopoverTrigger asChild>
               <button
                 type="button"
-                className="rounded-full ring-2 ring-[#ef7d32] transition hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-[#ef7d32]/30"
+                aria-label="Open integration menu"
+                className="border-l border-white/[0.05] py-3 pl-6 text-zinc-500 transition hover:text-white"
               >
-                <Avatar className="h-14 w-14">
-                  <AvatarImage
-                    src={integrated.instagramAvatarUrl || undefined}
-                    alt={profileLabel}
-                  />
-                  <AvatarFallback className="orange-gradient text-white">
-                    {getInitials(profileLabel)}
-                  </AvatarFallback>
-                </Avatar>
+                <MoreHorizontal className="h-6 w-6" />
               </button>
             </PopoverTrigger>
-            <PopoverContent className="dashboard-panel border-white/10 bg-[#110d0a]/95 text-white">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3">
-                  <Avatar className="h-12 w-12">
-                    <AvatarImage
-                      src={integrated.instagramAvatarUrl || undefined}
-                      alt={profileLabel}
-                    />
-                    <AvatarFallback className="orange-gradient text-white">
-                      {getInitials(profileLabel)}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="space-y-1">
-                    <p className="text-sm font-semibold">{profileLabel}</p>
-                    <p className="text-xs text-zinc-400">
-                      @{integrated.instagramUsername || 'instagram'}
-                    </p>
-                    <p className="text-xs text-zinc-400">
-                      ID: {integrated.instagramId || 'Unavailable'}
-                    </p>
-                  </div>
-                </div>
-                <Button
-                  type="button"
-                  variant="outline"
-                  disabled={isDisconnecting}
-                  onClick={() => disconnectMutation({})}
-                  className="w-full border-red-500/40 bg-transparent text-red-300 hover:bg-red-500/10 hover:text-red-200"
-                >
-                  {isDisconnecting ? 'Disconnecting...' : 'Disconnect'}
-                </Button>
-              </div>
+            <PopoverContent align="end" className="mac-integration-menu">
+              <p className="px-5 pb-4 pt-1 text-[10px] font-black uppercase tracking-[0.18em] text-zinc-600">
+                Account
+              </p>
+              <button type="button" className="mac-integration-menu-item">
+                <UserRound className="h-4 w-4" />
+                View Profile
+              </button>
+              <button
+                type="button"
+                disabled={isDisconnecting}
+                onClick={() => disconnectMutation({})}
+                className="mac-integration-menu-item text-red-400 disabled:opacity-50"
+              >
+                <ExternalLink className="h-4 w-4" />
+                {isDisconnecting ? 'Disconnecting...' : 'Disconnect'}
+              </button>
             </PopoverContent>
           </Popover>
         </div>
       ) : (
-        <Button
+        <button
+          type="button"
           onClick={onInstaOAuth}
-          disabled={integrated?.name === strategy}
-          className="orange-gradient text-white rounded-full text-lg font-medium hover:opacity-90 transition duration-100 shadow-[0_18px_40px_rgba(239,125,50,0.22)]"
+          disabled={!isInstagram}
+          className="mac-integration-connect disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {integrated ? 'Connected' : 'Connect'}
-        </Button>
+          Connect
+        </button>
       )}
-    </div>
+    </article>
   )
 }
 

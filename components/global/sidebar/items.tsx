@@ -1,5 +1,5 @@
-import { SIDEBAR_MENU } from '@/constants/menu'
 import { cn } from '@/lib/utils'
+import { BarChart3, Bolt, Grid2X2, Settings, Shuffle, Zap } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -8,24 +8,34 @@ type Props = {
   slug: string
 }
 
+const menu = [
+  { label: 'home', href: '', icon: <Grid2X2 className="h-6 w-6" /> },
+  { label: 'automations', href: 'automations', icon: <Zap className="h-6 w-6" /> },
+  { label: 'analytics', href: 'analytics', icon: <BarChart3 className="h-6 w-6" /> },
+  { label: 'integrations', href: 'integrations', icon: <Shuffle className="h-6 w-6" /> },
+  { label: 'settings', href: 'settings', icon: <Settings className="h-6 w-6" /> },
+]
+
 const Items = ({ page, slug }: Props) => {
-  return SIDEBAR_MENU.map((item) => (
-    <Link
-      key={item.id}
-      href={`/dashboard/${slug}/${item.label === 'home' ? '/' : item.label}`}
-      className={cn(
-        'capitalize flex items-center gap-x-3 rounded-2xl px-4 py-3 transition duration-150',
-        page === item.label &&
-          'bg-[#1b120d] text-white shadow-[inset_0_0_0_1px_rgba(239,125,50,0.28)]',
-        page === slug && item.label === 'home'
-          ? 'bg-[#1b120d] text-white shadow-[inset_0_0_0_1px_rgba(239,125,50,0.28)]'
-          : 'text-zinc-400 hover:bg-white/5 hover:text-white'
-      )}
-    >
-      {item.icon}
-      {item.label}
-    </Link>
-  ))
+  return menu.map((item) => {
+    const isActive =
+      page === item.label || (!page && item.label === 'home') || (page === slug && item.label === 'home')
+
+    return (
+      <Link
+        key={item.label}
+        href={`/dashboard/${slug}${item.href ? `/${item.href}` : ''}`}
+        data-active={isActive}
+        className={cn(
+          'mac-dash-nav-item capitalize flex h-[52px] items-center gap-4 px-8 text-base font-black transition',
+          isActive ? 'text-[#ff6b00]' : 'text-zinc-600 hover:text-zinc-300'
+        )}
+      >
+        {item.icon}
+        {item.label}
+      </Link>
+    )
+  })
 }
 
 export default Items

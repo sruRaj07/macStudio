@@ -3,7 +3,6 @@ import {
     HydrationBoundary,
     QueryClient,
   } from '@tanstack/react-query'
-  import InfoBar from '@/components/global/infobar'
   import Sidebar from '@/components/global/sidebar'
   import React from 'react'
   import {
@@ -27,21 +26,22 @@ import {
   
   return (
       <HydrationBoundary state={dehydrate(query)}>
-        <div className="dashboard-shell p-3">
+        <div className="mac-dashboard-shell">
           <Sidebar slug={slug} />
           <div
             className="
         relative z-10
-        lg:ml-[250px] 
-        lg:pl-10 
-        lg:py-5 
+        lg:ml-[300px] 
+        px-5
+        py-8
+        lg:px-14
+        lg:py-12
         flex 
         flex-col 
-        gap-y-6
+        min-h-screen
         overflow-auto
         "
           >
-            <InfoBar slug={slug} />
             {children}
           </div>
         </div>

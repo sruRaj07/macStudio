@@ -15,15 +15,15 @@ const PaymentCard = ({ current, label, landing }: Props) => {
     <div
       className={cn(
         label !== current
-          ? 'dashboard-panel-muted'
+          ? 'imate-card-muted'
           : 'orange-gradient',
-        'p-[2px] rounded-xl overflow-hidden'
+        'p-[1px] rounded-[1.9rem] overflow-hidden'
       )}
     >
       <div
         className={cn(
           landing && 'radial--gradient--pink',
-          'flex flex-col rounded-xl pl-5 py-5 pr-10 bg-background-90 h-full'
+          'flex flex-col rounded-[1.85rem] px-6 py-6 bg-[#0d0d0d] h-full'
         )}
       >
         {landing ? (
@@ -71,7 +71,7 @@ const PaymentCard = ({ current, label, landing }: Props) => {
         {landing ? (
           <Button
             className={cn(
-              'rounded-full mt-5',
+              'rounded-full mt-6',
               label === 'PRO'
                 ? 'orange-gradient text-white'
                 : 'bg-white/10 text-white hover:bg-white/15 hover:text-white'
@@ -85,7 +85,7 @@ const PaymentCard = ({ current, label, landing }: Props) => {
           </Button>
         ) : (
           <Button
-            className="rounded-full mt-5 bg-white/10 text-white hover:bg-white/15 hover:text-white"
+            className="rounded-full mt-6 bg-white/10 text-white hover:bg-white/15 hover:text-white"
             disabled={label === current}
           >
             {label === current

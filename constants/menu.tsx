@@ -4,6 +4,7 @@ import {
     RocketDuoToneWhite,
     SettingsDuoToneWhite,
   } from '@/icons'
+  import { BarChart3 } from 'lucide-react'
   import { v4 as uuid } from 'uuid'
   
   export type FieldProps = {
@@ -25,6 +26,11 @@ import {
       id: uuid(),
       label: 'automations',
       icon: <AutomationDuoToneWhite />,
+    },
+    {
+      id: uuid(),
+      label: 'analytics',
+      icon: <BarChart3 className="h-5 w-5" />,
     },
     {
       id: uuid(),

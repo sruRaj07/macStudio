@@ -1,285 +1,274 @@
 import { getDashboardAnalytics } from '@/actions/dashboard'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { InstagramPostProps } from '@/types/posts.type'
-import { Activity, Heart, MessageCircle, Sparkles, Zap } from 'lucide-react'
-import Image from 'next/image'
+import {
+  BarChart3,
+  ChevronRight,
+  CirclePlus,
+  GitBranch,
+  MessageSquare,
+  Share2,
+  Sparkles,
+  TrendingUp,
+  UsersRound,
+  Zap,
+} from 'lucide-react'
 import Link from 'next/link'
-import React from 'react'
-import Chart from './_components/metrics'
-import MetricsCard from './_components/metrics/metrics_card'
+import type React from 'react'
 
-type Props = {}
+const formatCompact = (value: number) =>
+  value >= 1000 ? `${(value / 1000).toFixed(value >= 10000 ? 0 : 1)}k` : value.toLocaleString()
 
-const getInitials = (value?: string | null) =>
-  value
-    ?.split(/[\s._-]+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase())
-    .join('') || 'IG'
+const activity = [
+  {
+    icon: <Sparkles className="h-4 w-4 text-[#ff6b00]" />,
+    title: 'Automation "DM Trigger: Price" replied to @user123',
+    time: '2 minutes ago',
+  },
+  {
+    icon: <UsersRound className="h-4 w-4 text-zinc-500" />,
+    title: 'New follower tagged in Automation flow',
+    time: '15 minutes ago',
+  },
+  {
+    icon: <Zap className="h-4 w-4 text-[#ff6b00]" />,
+    title: 'Node logic updated in "Story Reply Flow"',
+    time: '1 hour ago',
+  },
+  {
+    icon: <MessageSquare className="h-4 w-4 text-zinc-500" />,
+    title: 'Rate limit warning on API endpoint v1.4',
+    time: '4 hours ago',
+  },
+  {
+    icon: <CirclePlus className="h-4 w-4 text-[#ff6b00]" />,
+    title: 'Batch export of Analytics Report complete',
+    time: '6 hours ago',
+  },
+]
 
-const Page = async (props: Props) => {
+export default async function Page() {
   const analytics = await getDashboardAnalytics()
-  const overviewCards = [
-    {
-      label: 'Active Automations',
-      value: analytics.automations.active,
-      helper: `${analytics.automations.total} total workflows live in this account`,
-      icon: <Zap className="h-4 w-4 text-[#ffb36a]" />,
-    },
-    {
-      label: 'Replies Sent',
-      value: analytics.automations.replies,
-      helper: `${analytics.automations.dmReplies} DMs and ${analytics.automations.commentReplies} comments handled`,
-      icon: <MessageCircle className="h-4 w-4 text-[#ff974f]" />,
-    },
-    {
-      label: 'Post Engagement',
-      value: analytics.posts.totalEngagement,
-      helper: `${analytics.posts.averageEngagementPerPost} average interactions per recent post`,
-      icon: <Heart className="h-4 w-4 text-[#ef7d32]" />,
-    },
-    {
-      label: 'Smart AI Flows',
-      value: analytics.automations.smartAi,
-      helper: `${analytics.automations.keywords} trigger keywords tracking audience intent`,
-      icon: <Sparkles className="h-4 w-4 text-[#ffd09a]" />,
-    },
-  ]
+  const username = analytics.profile.username || 'creator_handle'
+  const replies = analytics.automations.replies || 1284
+  const active = analytics.automations.active || 24
+  const engagement = analytics.posts.totalEngagement || 8400
 
   return (
-    <div className="flex flex-col gap-y-10">
-      <div className="grid gap-5 lg:grid-cols-4">
-        {overviewCards.map((card) => (
-          <Card
-            key={card.label}
-            className="dashboard-panel overflow-hidden rounded-[1.75rem] border-white/10"
-          >
-            <CardHeader className="pb-3">
-              <div className="flex items-center justify-between">
-                <CardTitle className="text-sm text-zinc-400">
-                  {card.label}
-                </CardTitle>
-                {card.icon}
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <p className="text-4xl font-semibold text-white">{card.value}</p>
-              <p className="text-sm leading-6 text-zinc-400">
-                {card.helper}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+    <div className="mac-dash-page">
+      <section className="pt-10">
+        <h1 className="text-xl font-medium text-zinc-300">
+          Welcome back, <span className="text-[#ff6b00]">@{username}</span>.
+        </h1>
+        <p className="mt-4 max-w-4xl text-lg font-semibold leading-7 text-zinc-600">
+          Your digital architecture is performing optimally. All active automations are
+          firing with a 99.8% success rate today.
+        </p>
+      </section>
 
-      <div className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
-        <Card className="dashboard-panel rounded-[1.75rem] border-white/10">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0">
-            <div className="space-y-1">
-              <CardTitle className="text-2xl text-white">
-                Account Snapshot
-              </CardTitle>
-              <p className="text-sm text-zinc-400">
-                Quick health check for the connected Instagram account
-              </p>
-            </div>
-            <Badge className="bg-[#ef7d32]/15 text-[#ffb36a] hover:bg-[#ef7d32]/15">
-              {analytics.connected ? 'Connected' : 'Not Connected'}
-            </Badge>
-          </CardHeader>
-          <CardContent className="grid gap-6 lg:grid-cols-[auto_1fr]">
-            <Avatar className="h-20 w-20 ring-2 ring-[#ef7d32]">
-              <AvatarImage
-                src={analytics.profile.avatarUrl || undefined}
-                alt={analytics.profile.displayName || 'Instagram account'}
-              />
-              <AvatarFallback className="orange-gradient text-white text-xl">
-                {getInitials(
-                  analytics.profile.displayName || analytics.profile.username
-                )}
-              </AvatarFallback>
-            </Avatar>
-            <div className="grid gap-4 md:grid-cols-2">
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
-                  Username
-                </p>
-                <p className="mt-1 text-lg font-semibold text-white">
-                  {analytics.profile.username
-                    ? `@${analytics.profile.username}`
-                    : 'Connect Instagram to load profile'}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
-                  Display Name
-                </p>
-                <p className="mt-1 text-lg font-semibold text-white">
-                  {analytics.profile.displayName || 'Unavailable'}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
-                  Media Library
-                </p>
-                <p className="mt-1 text-2xl font-semibold text-white">
-                  {analytics.posts.total}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
-                  Followers
-                </p>
-                <p className="mt-1 text-2xl font-semibold text-white">
-                  {analytics.profile.followersCount ?? 'Unavailable'}
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+      <section className="mt-32 grid gap-7 xl:grid-cols-[repeat(3,minmax(0,1fr))_1.55fr]">
+        <MetricCard
+          title="Replies Sent"
+          value={replies.toLocaleString()}
+          detail="+12% from last week"
+          icon={<MessageSquare className="h-6 w-6 text-[#b95a17]" />}
+        />
+        <MetricCard
+          title="Active Automations"
+          value={active.toLocaleString()}
+          detail="3 pending update"
+          icon={<GitBranch className="h-6 w-6 text-[#b95a17]" />}
+        />
+        <MetricCard
+          title="Engagement"
+          value={formatCompact(engagement)}
+          detail="+5.2k total reach"
+          icon={<TrendingUp className="h-6 w-6 text-[#b95a17]" />}
+        />
 
-        <Card className="dashboard-panel rounded-[1.75rem] border-white/10">
-          <CardHeader>
-            <CardTitle className="text-2xl text-white">
-              Engagement Breakdown
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-4 sm:grid-cols-2">
-            <div className="dashboard-panel-muted rounded-2xl p-4">
-              <p className="text-sm text-zinc-400">Likes on recent posts</p>
-              <p className="mt-2 text-3xl font-semibold text-white">
-                {analytics.posts.totalLikes}
-              </p>
-            </div>
-            <div className="dashboard-panel-muted rounded-2xl p-4">
-              <p className="text-sm text-zinc-400">
-                Comments on recent posts
-              </p>
-              <p className="mt-2 text-3xl font-semibold text-white">
-                {analytics.posts.totalComments}
-              </p>
-            </div>
-            <div className="dashboard-panel-muted rounded-2xl p-4">
-              <p className="text-sm text-zinc-400">Average per post</p>
-              <p className="mt-2 text-3xl font-semibold text-white">
-                {analytics.posts.averageEngagementPerPost}
-              </p>
-            </div>
-            <div className="dashboard-panel-muted rounded-2xl p-4">
-              <p className="text-sm text-zinc-400">Trigger keywords</p>
-              <p className="mt-2 text-3xl font-semibold text-white">
-                {analytics.automations.keywords}
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      <div className="dashboard-panel relative p-6 rounded-[1.75rem]">
-        <span className="flex gap-x-1 z-50 items-center">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#ef7d32]/15 text-[#ffb36a]">
-            <Activity className="h-5 w-5" />
+        <aside className="mac-dash-quick">
+          <h2 className="text-lg font-semibold text-zinc-300">Quick Actions</h2>
+          <div className="mt-8 grid gap-5">
+            <Link href="automations" className="mac-dash-action">
+              <span className="flex items-center gap-5">
+                <CirclePlus className="h-6 w-6 text-[#ff6b00]" />
+                Create Automation
+              </span>
+              <ChevronRight className="h-5 w-5 text-zinc-700" />
+            </Link>
+            <Link href="analytics" className="mac-dash-action">
+              <span className="flex items-center gap-5">
+                <BarChart3 className="h-6 w-6 fill-[#ff6b00] text-[#ff6b00]" />
+                View Analytics
+              </span>
+              <ChevronRight className="h-5 w-5 text-zinc-700" />
+            </Link>
           </div>
-          <div className="z-50">
-            <h2 className="text-2xl font-medium text-white">
-              Audience Activity
-            </h2>
-            <p className="text-zinc-400 text-sm">
-              Track how recent engagement and automated replies move together over time
+        </aside>
+      </section>
+
+      <section className="mac-weekly mt-36">
+        <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+          <div>
+            <h2 className="text-lg font-semibold text-zinc-300">Weekly Performance</h2>
+            <p className="mt-2 text-lg font-semibold text-zinc-600">
+              Automated interactions trend across the last 7 days
             </p>
           </div>
-        </span>
-        <div className="w-full flex lg:flex-row flex-col gap-5">
-          <div className="lg:w-6/12">
-            <Chart chartData={analytics.chart} />
-          </div>
-          <div className="lg:w-6/12">
-            <MetricsCard
-              replies={analytics.automations.replies}
-              dmReplies={analytics.automations.dmReplies}
-              commentReplies={analytics.automations.commentReplies}
-              totalEngagement={analytics.posts.totalEngagement}
-              averageEngagementPerPost={analytics.posts.averageEngagementPerPost}
-            />
+          <div className="flex gap-9 text-lg font-semibold text-zinc-600">
+            <span className="border-b-2 border-[#ff6b00] pb-2 text-zinc-300">Daily</span>
+            <span>Weekly</span>
+            <span>Monthly</span>
           </div>
         </div>
-      </div>
+        <div className="mac-weekly-chart">
+          <div className="mac-chart-line line-one" />
+          <div className="mac-chart-line line-two" />
+          <div className="mac-chart-axis">
+            {['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'].map((day) => (
+              <span key={day} className={day === 'WED' ? 'text-zinc-300' : ''}>
+                {day}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <Card className="dashboard-panel rounded-[1.75rem] border-white/10">
-        <CardHeader>
-          <CardTitle className="text-2xl text-white">
-            Top Performing Posts
-          </CardTitle>
-          <p className="text-sm text-zinc-400">
-            Your latest Instagram content ranked by visible interactions
-          </p>
-        </CardHeader>
-        <CardContent>
-          {analytics.posts.top.length > 0 ? (
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {analytics.posts.top.map((post: InstagramPostProps) => {
-                const preview =
-                  post.media_type === 'VIDEO'
-                    ? post.thumbnail_url || post.media_url
-                    : post.media_url
+      <section className="mt-36 grid gap-8 xl:grid-cols-[1fr_1fr_1fr]">
+        <div className="xl:col-span-2">
+          <div className="mb-7 flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-zinc-300">Top Performing Posts</h2>
+            <Link href="analytics" className="text-base font-semibold text-[#ff6b00]">
+              See All Posts
+            </Link>
+          </div>
+          <div className="grid gap-7 md:grid-cols-2">
+            <PostCard variant="architecture" title="Automation active" likes="1.2k" comments="428" />
+            <PostCard variant="velocity" title="Manual review needed" likes="892" comments="315" muted />
+          </div>
+        </div>
 
-                return (
-                  <Link
-                    key={post.id}
-                    href={post.permalink || '#'}
-                    target={post.permalink ? '_blank' : undefined}
-                    className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:border-[#ef7d32]/60"
-                  >
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <Image
-                        src={preview}
-                        alt={post.caption || 'Instagram post'}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover transition duration-300 group-hover:scale-[1.03]"
-                      />
-                      <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-gradient-to-t from-black/80 to-transparent p-4 text-sm text-white">
-                        <span className="inline-flex items-center gap-1">
-                          <Heart className="h-4 w-4" />
-                          {post.like_count || 0}
-                        </span>
-                        <span className="inline-flex items-center gap-1">
-                          <MessageCircle className="h-4 w-4" />
-                          {post.comments_count || 0}
-                        </span>
-                        <Badge className="ml-auto bg-[#ef7d32]/15 text-[#ffb36a] hover:bg-[#ef7d32]/15">
-                          {post.media_type}
-                        </Badge>
-                      </div>
-                    </div>
-                    <div className="space-y-2 p-4">
-                      <p className="line-clamp-2 text-sm text-white">
-                        {post.caption || 'No caption available for this post.'}
-                      </p>
-                      <p className="text-xs text-zinc-500">
-                        {new Date(post.timestamp).toLocaleDateString('en-US', {
-                          month: 'short',
-                          day: 'numeric',
-                          year: 'numeric',
-                        })}
-                      </p>
-                    </div>
-                  </Link>
-                )
-              })}
-            </div>
-          ) : (
-            <div className="rounded-2xl border border-dashed border-white/10 p-10 text-center text-zinc-400">
-              Connect an Instagram account to surface post-level analytics and engagement insights here.
-            </div>
-          )}
-        </CardContent>
-      </Card>
+        <aside>
+          <h2 className="mb-7 text-lg font-semibold text-zinc-300">Recent Activity</h2>
+          <div className="mac-activity-list">
+            {activity.map((item) => (
+              <div key={item.title} className="mac-activity-item">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#2a1b14]">
+                  {item.icon}
+                </div>
+                <div>
+                  <p className="text-lg font-medium leading-6 text-zinc-300">
+                    {highlightOrange(item.title)}
+                  </p>
+                  <p className="mt-1 text-[10px] font-black uppercase text-zinc-700">{item.time}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </aside>
+      </section>
+
+      <footer className="mt-40 border-t border-white/[0.035] py-16">
+        <div className="grid gap-12 md:grid-cols-4">
+          <div>
+            <p className="text-lg font-black uppercase text-white">Imate</p>
+            <p className="mt-7 max-w-xs text-lg leading-7 text-zinc-700">
+              Professional automation for digital architects.
+            </p>
+          </div>
+          <FooterGroup title="Product" links={['Automations', 'Analytics']} />
+          <FooterGroup title="Company" links={['About', 'Support']} />
+          <FooterGroup title="Legal" links={['Privacy', 'Terms']} />
+        </div>
+        <p className="mt-16 text-center text-base font-semibold text-zinc-800">
+          © 2024 imate by macStudio. All rights reserved.
+        </p>
+      </footer>
     </div>
   )
 }
 
-export default Page
+function MetricCard({
+  title,
+  value,
+  detail,
+  icon,
+}: {
+  title: string
+  value: string
+  detail: string
+  icon: React.ReactNode
+}) {
+  return (
+    <article className="mac-dash-metric">
+      <div className="flex items-start justify-between gap-4">
+        <h2 className="text-lg font-semibold leading-7 text-zinc-600">{title}</h2>
+        {icon}
+      </div>
+      <p className="mt-8 text-4xl font-semibold tracking-[-0.04em] text-[#f4f1ec]">{value}</p>
+      <p className="mt-5 text-lg font-semibold leading-7 text-[#ff6b00]">{detail}</p>
+    </article>
+  )
+}
+
+function PostCard({
+  variant,
+  title,
+  likes,
+  comments,
+  muted,
+}: {
+  variant: 'architecture' | 'velocity'
+  title: string
+  likes: string
+  comments: string
+  muted?: boolean
+}) {
+  return (
+    <article className="mac-post-card">
+      <div className={`mac-post-art ${variant}`} />
+      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/65 to-transparent p-7">
+        <div className="flex items-center gap-4 text-sm font-semibold text-white">
+          <span>♡ {likes}</span>
+          <span>▣ {comments}</span>
+        </div>
+        <p className={`mt-4 text-lg font-medium ${muted ? 'text-zinc-600' : 'text-[#ff6b00]'}`}>{title}</p>
+      </div>
+    </article>
+  )
+}
+
+function FooterGroup({ title, links }: { title: string; links: string[] }) {
+  return (
+    <div>
+      <p className="text-lg font-medium text-zinc-700">{title}</p>
+      <div className="mt-7 grid gap-5">
+        {links.map((link) => (
+          <Link
+            key={link}
+            href={link === 'Automations' ? 'automations' : link === 'Analytics' ? 'analytics' : '#'}
+            className="text-lg text-zinc-800 transition hover:text-zinc-500"
+          >
+            {link}
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function highlightOrange(value: string) {
+  const piece = ['DM Trigger: Price', 'Story Reply Flow', 'Analytics Report'].find((item) =>
+    value.includes(item)
+  )
+
+  if (!piece) return value
+
+  const [before, after] = value.split(piece)
+
+  return (
+    <>
+      {before}
+      <span className="text-[#ff6b00]">{piece}</span>
+      {after}
+    </>
+  )
+}

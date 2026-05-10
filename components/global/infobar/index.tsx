@@ -28,41 +28,42 @@ const InfoBar = ({ slug }: Props) => {
   return (
     currentPage && (
       <div className="flex flex-col gap-y-5">
-        <div className="flex gap-x-3 lg:gap-x-5 justify-end">
+        <div className="imate-content-section rounded-[1.75rem] px-4 py-4 lg:px-5 flex gap-x-3 lg:gap-x-5 justify-end items-center">
           <span className="lg:hidden flex items-center flex-1 gap-x-2">
             <Sheet
               trigger={<Menu />}
               className="lg:hidden"
               side="left"
             >
-              <div className="dashboard-shell flex flex-col gap-y-5 w-full h-full p-3 bg-[#0e0c0a]/90 bg-clip-padding backdrop-filter backdrop--blur__safari backdrop-blur-3xl">
-                <div className="flex gap-x-3 items-center p-5 justify-center">
+              <div className="dashboard-shell flex flex-col gap-y-5 w-full h-full p-4">
+                <div className="imate-sidebar rounded-[1.75rem] flex flex-col gap-y-5 w-full h-full p-4">
+                <div className="flex gap-x-3 items-center p-4 justify-center rounded-[1.5rem] imate-card-muted">
                   <LogoSmall />
                   <div className="flex flex-col">
                     <p className="text-xs uppercase tracking-[0.28em] text-[#ffb36a]">
                       imate
                     </p>
-                    <p className="text-xs text-zinc-400">Control center</p>
+                    <p className="text-xs text-zinc-500">Control center</p>
                   </div>
                 </div>
-                <div className="flex flex-col py-3">
+                <div className="flex flex-col py-1 gap-y-1">
                   <Items
                     page={page}
                     slug={slug}
                   />
                 </div>
-                <div className="px-16">
+                <div className="px-4">
                   <Separator
                     orientation="horizontal"
                     className="bg-white/10"
                   />
                 </div>
-                <div className="px-3 flex flex-col gap-y-5">
-                  <div className="flex gap-x-2">
+                <div className="px-2 flex flex-col gap-y-3">
+                  <div className="imate-card-muted rounded-2xl px-4 py-3 flex gap-x-2">
                     <ClerkAuthState />
                     <p className="text-zinc-400">Profile</p>
                   </div>
-                  <div className="flex gap-x-3">
+                  <div className="imate-card-muted rounded-2xl px-4 py-3 flex gap-x-3">
                     <HelpDuoToneWhite />
                     <p className="text-zinc-400">Help</p>
                   </div>
@@ -72,6 +73,7 @@ const InfoBar = ({ slug }: Props) => {
                     <UpgradeCard />
                   </div>
                 </SubscriptionPlan>
+                </div>
               </div>
             </Sheet>
           </span>

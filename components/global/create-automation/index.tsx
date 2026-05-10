@@ -3,9 +3,9 @@
 import { Button } from '@/components/ui/button'
 import React, { useMemo } from 'react'
 import Loader from '../loader'
-import { AutomationDuoToneWhite } from '@/icons'
 import { useCreateAutomation } from '@/hooks/use-automations'
 import { v4 } from 'uuid'
+import { Plus } from 'lucide-react'
 
 type Props = {}
 
@@ -17,7 +17,7 @@ const CreateAutomation = (props: Props) => {
 
   return (
     <Button
-      className="lg:px-10 py-6 orange-gradient hover:opacity-90 text-white rounded-full font-medium shadow-[0_18px_40px_rgba(239,125,50,0.28)]"
+      className="h-11 rounded bg-[#ff6b00] px-8 text-base font-medium uppercase text-black shadow-[0_0_28px_rgba(255,107,0,0.34)] hover:bg-[#ff7a14]"
       onClick={() =>
         mutate({
           name: 'Untitled',
@@ -28,8 +28,8 @@ const CreateAutomation = (props: Props) => {
       }
     >
       <Loader state={isPending}>
-        <AutomationDuoToneWhite />
-        <p className="lg:inline hidden">Create an Automation</p>
+        <Plus className="h-5 w-5" />
+        <p className="hidden lg:inline">Create an Automation</p>
       </Loader>
     </Button>
   )

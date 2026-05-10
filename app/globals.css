@@ -237,9 +237,8 @@
   position: relative;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(239, 125, 50, 0.16), transparent 22%),
-    radial-gradient(circle at top right, rgba(255, 179, 106, 0.1), transparent 20%),
-    linear-gradient(180deg, #120d0a 0%, #0c0b0a 36%, #090909 100%);
+    radial-gradient(circle at top left, rgba(239, 125, 50, 0.12), transparent 18%),
+    linear-gradient(180deg, #0d0d0d 0%, #090909 46%, #060606 100%);
 }
 
 .dashboard-shell::before {
@@ -257,18 +256,1341 @@
 
 .dashboard-panel {
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(16px);
+  background: linear-gradient(180deg, rgba(24, 24, 24, 0.96), rgba(14, 14, 14, 0.98));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
 }
 
 .dashboard-panel-muted {
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .orange-gradient {
   background-image: linear-gradient(135deg, #ef7d32 0%, #ff974f 55%, #ffb36a 100%);
+}
+
+.imate-shell {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(239, 125, 50, 0.12), transparent 18%),
+    linear-gradient(180deg, #0d0d0d 0%, #090909 40%, #060606 100%);
+}
+
+.imate-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 96%);
+}
+
+.imate-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(23, 23, 23, 0.98), rgba(12, 12, 12, 0.98));
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+}
+
+.imate-card-muted {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.imate-soft-line {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.imate-hero-frame {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background:
+    linear-gradient(180deg, rgba(25, 25, 25, 0.96), rgba(10, 10, 10, 0.98));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+}
+
+.imate-pill {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.imate-sidebar {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(18, 18, 18, 0.98), rgba(8, 8, 8, 0.98));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+}
+
+.imate-sidebar-item {
+  border: 1px solid transparent;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.imate-sidebar-item:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.imate-sidebar-item[data-active='true'] {
+  border-color: rgba(239, 125, 50, 0.28);
+  background: linear-gradient(90deg, rgba(239, 125, 50, 0.18), rgba(255, 255, 255, 0.02));
+}
+
+.imate-content-section {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(19, 19, 19, 0.96), rgba(9, 9, 9, 0.98));
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.16);
+}
+
+.imate-auth-shell {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(239, 125, 50, 0.12), transparent 18%),
+    linear-gradient(180deg, #0d0d0d 0%, #090909 100%);
+}
+
+.imate-auth-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.35;
+}
+
+.mac-landing {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mac-hero {
+  background:
+    radial-gradient(circle at 50% 6%, rgba(255, 107, 0, 0.1), transparent 20%),
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08), transparent 14%),
+    linear-gradient(180deg, #171310 0%, #111 38%, #0f0f0f 100%);
+}
+
+.mac-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(180deg, black, transparent 58%);
+}
+
+.mac-dashboard-frame {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #202020;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+}
+
+.mac-dashboard {
+  min-height: 520px;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  background:
+    radial-gradient(circle at 45% 48%, rgba(255, 107, 0, 0.15), transparent 16%),
+    linear-gradient(135deg, rgba(13, 36, 36, 0.96), rgba(7, 17, 18, 0.98));
+}
+
+.mac-dashboard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(95, 170, 164, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(95, 170, 164, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.65;
+}
+
+.mac-node {
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  background: rgba(4, 13, 14, 0.52);
+}
+
+.mac-flow-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.mac-flow-lines .line {
+  position: absolute;
+  left: 39%;
+  top: 46%;
+  height: 2px;
+  width: 19%;
+  background: linear-gradient(90deg, #ff6b00, rgba(255, 107, 0, 0.05));
+  box-shadow: 0 0 16px rgba(255, 107, 0, 0.75);
+  transform-origin: left center;
+}
+
+.mac-flow-lines .line-a {
+  transform: rotate(32deg);
+}
+
+.mac-flow-lines .line-b {
+  transform: rotate(-33deg);
+}
+
+.mac-flow-lines .line-c {
+  width: 28%;
+  transform: rotate(0deg);
+}
+
+.mac-flow-lines .dot {
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  border-radius: 999px;
+  background: #ff6b00;
+  box-shadow: 0 0 16px #ff6b00;
+}
+
+.mac-flow-lines .dot-a { left: 31%; top: 34%; }
+.mac-flow-lines .dot-b { left: 37%; top: 42%; }
+.mac-flow-lines .dot-c { left: 43%; top: 52%; }
+.mac-flow-lines .dot-d { left: 37%; top: 61%; }
+.mac-flow-lines .dot-e { left: 58%; top: 48%; }
+
+.mac-feature-card {
+  position: relative;
+  min-height: 265px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.045);
+  background: #202020;
+  padding: 2rem;
+}
+
+.mac-feature-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.045), transparent 42%);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.mac-feature-card:hover::after {
+  opacity: 1;
+}
+
+.mac-card-chart {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 48%;
+  background:
+    linear-gradient(90deg, rgba(32, 32, 32, 0.1), #111 8%, transparent),
+    radial-gradient(circle at 68% 42%, rgba(255, 107, 0, 0.26), transparent 22%),
+    linear-gradient(135deg, #143338, #211f1b);
+}
+
+.mac-card-chart span {
+  position: absolute;
+  left: 12%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 107, 0, 0.2), #ff6b00, rgba(255, 107, 0, 0.2));
+  box-shadow: 0 0 18px rgba(255, 107, 0, 0.42);
+  transform: rotate(-12deg);
+}
+
+.mac-card-chart span:nth-child(1) { top: 38%; }
+.mac-card-chart span:nth-child(2) { top: 51%; transform: rotate(-7deg); }
+.mac-card-chart span:nth-child(3) { top: 63%; transform: rotate(-18deg); }
+
+.mac-reply-meter {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b00 0 36%, rgba(255, 255, 255, 0.1) 36% 100%);
+}
+
+.mac-monitor-frame {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 107, 0, 0.16);
+  background:
+    radial-gradient(circle at 50% 100%, rgba(255, 107, 0, 0.38), transparent 28%),
+    #050505;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+}
+
+.mac-monitor-light {
+  position: absolute;
+  inset: 2rem 2rem auto;
+  height: 86%;
+  border: 3px solid #ff8a3b;
+  border-bottom: 0;
+  box-shadow: 0 0 18px rgba(255, 107, 0, 0.65);
+}
+
+.mac-monitor-screen {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  width: min(58%, 360px);
+  aspect-ratio: 16 / 10;
+  border: 12px solid #171717;
+  background: #102d30;
+  box-shadow:
+    0 35px 45px rgba(255, 107, 0, 0.25),
+    0 10px 35px rgba(0, 0, 0, 0.65);
+  transform: translate(-50%, -50%);
+}
+
+.mac-monitor-screen::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 30%;
+  height: 78px;
+  background: linear-gradient(180deg, #111, #292929);
+  clip-path: polygon(36% 0, 64% 0, 100% 100%, 0 100%);
+  transform: translateX(-50%);
+}
+
+.mac-monitor-ui {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 0.72fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background-image:
+    linear-gradient(rgba(127, 235, 228, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(127, 235, 228, 0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.mac-monitor-ui span {
+  display: block;
+  min-height: 22px;
+  border: 1px solid rgba(127, 235, 228, 0.14);
+  background: rgba(127, 235, 228, 0.06);
+}
+
+.mac-price-card {
+  position: relative;
+  min-height: 390px;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  background: #111;
+  padding: 2.5rem;
+}
+
+.mac-price-card.is-featured {
+  min-height: 450px;
+  border-color: rgba(255, 107, 0, 0.72);
+  box-shadow: 0 30px 70px rgba(255, 107, 0, 0.08);
+}
+
+.mac-popular {
+  position: absolute;
+  left: 50%;
+  top: -12px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #ff6b00;
+  padding: 0.3rem 0.8rem;
+  color: #111;
+  font-size: 0.6rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.mac-cta {
+  overflow: hidden;
+  border-radius: 1rem;
+  background:
+    radial-gradient(circle at 100% 100%, rgba(255, 107, 0, 0.18), transparent 28%),
+    radial-gradient(circle at 0% 0%, rgba(255, 107, 0, 0.1), transparent 25%),
+    #242424;
+}
+
+.mac-auth {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mac-auth-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 84px 84px;
+  opacity: 0.08;
+}
+
+.mac-auth-panel::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  height: 58%;
+  width: 75%;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  border-radius: 0.25rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.006));
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.018);
+  transform: translateX(-50%);
+}
+
+.mac-auth-panel::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  height: 58%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(255, 107, 0, 0.22), transparent);
+  transform: translateX(-50%) rotate(-20deg);
+  transform-origin: top;
+}
+
+.mac-auth-logo-card {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  display: flex;
+  height: 152px;
+  width: 152px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 107, 0, 0.16);
+  border-radius: 0.75rem;
+  background: rgba(24, 24, 24, 0.42);
+  box-shadow:
+    0 0 38px rgba(255, 107, 0, 0.08),
+    inset 0 0 30px rgba(255, 107, 0, 0.025);
+}
+
+.mac-auth-logo-inner {
+  display: flex;
+  height: 128px;
+  width: 128px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 107, 0, 0.42);
+  border-radius: 0.7rem;
+  background: #292929;
+  box-shadow: 0 0 34px rgba(255, 107, 0, 0.11);
+}
+
+.mac-auth-step {
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 0.25rem;
+  background: linear-gradient(180deg, #242424, #1b1b1b);
+  padding: 0.85rem 0.5rem;
+  text-align: center;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+}
+
+.mac-clerk-root .cl-card,
+.mac-clerk-root .cl-rootBox {
+  width: 100%;
+}
+
+.mac-clerk-root .cl-socialButtonsBlockButton {
+  gap: 0.75rem;
+}
+
+.mac-clerk-root .cl-formFieldInput {
+  caret-color: #ff6b00;
+}
+
+.mac-clerk-root .cl-formFieldInput::placeholder {
+  color: #777f91;
+}
+
+.mac-clerk-root .cl-formButtonPrimary:focus,
+.mac-clerk-root .cl-socialButtonsBlockButton:focus {
+  box-shadow: 0 0 0 1px rgba(255, 107, 0, 0.85), 0 0 0 4px rgba(255, 107, 0, 0.12);
+}
+
+.mac-clerk-root .cl-formFieldLabelRow {
+  align-items: center;
+}
+
+.mac-clerk-root .cl-formFieldAction {
+  margin-left: auto;
+}
+
+.mac-clerk-root .cl-formFieldInputShowPasswordButton {
+  color: #575757;
+}
+
+.mac-clerk-root .cl-formFieldInputShowPasswordButton:hover {
+  color: #ff6b00;
+}
+
+.mac-clerk-root .cl-otpCodeFieldInput {
+  border-color: rgba(255, 107, 0, 0.26);
+  background: #0b0b0b;
+  color: white;
+}
+
+.mac-features {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mac-feature-phone-frame {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  border: 8px solid #242424;
+  border-radius: 0.25rem;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(255, 255, 255, 0.09), transparent 24%),
+    radial-gradient(circle at 55% 50%, rgba(255, 107, 0, 0.06), transparent 28%),
+    linear-gradient(135deg, #050505, #202020 55%, #080808);
+}
+
+.mac-feature-phone-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(135deg, transparent 48%, rgba(255, 255, 255, 0.12) 49%, transparent 50%),
+    linear-gradient(45deg, transparent 49%, rgba(255, 255, 255, 0.05) 50%, transparent 51%);
+  opacity: 0.2;
+}
+
+.mac-feature-phone {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 380px;
+  width: 205px;
+  border: 6px solid #0b0b0b;
+  border-radius: 2.2rem;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.1), transparent 20%),
+    #111;
+  box-shadow:
+    38px 42px 55px rgba(0, 0, 0, 0.72),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transform: translate(-42%, -42%) rotate(62deg) skewX(-7deg);
+}
+
+.mac-phone-notch {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  height: 8px;
+  width: 48px;
+  border-radius: 999px;
+  background: #050505;
+  transform: translateX(-50%);
+}
+
+.mac-phone-auth-pulse {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  height: 54px;
+  width: 54px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+}
+
+.mac-phone-auth-pulse::before,
+.mac-phone-auth-pulse::after {
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+}
+
+.mac-phone-auth-pulse::before {
+  inset: 14px;
+  background: #f6f1ea;
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.32);
+}
+
+.mac-phone-auth-pulse::after {
+  inset: -16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mac-feature-phone p {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  width: 120px;
+  color: #666;
+  font-size: 0.55rem;
+  font-weight: 900;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.mac-feature-card-large {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  border-radius: 0.35rem;
+  background: #252525;
+  padding: 3rem;
+}
+
+.mac-network-visual {
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 32% 54%, rgba(255, 255, 255, 0.24), transparent 4%),
+    radial-gradient(circle at 55% 40%, rgba(255, 255, 255, 0.28), transparent 4%),
+    radial-gradient(circle at 78% 58%, rgba(255, 255, 255, 0.2), transparent 4%),
+    linear-gradient(135deg, #090909, #262626);
+}
+
+.mac-network-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(22deg, transparent 48%, rgba(255, 255, 255, 0.3) 49%, transparent 50%),
+    linear-gradient(-18deg, transparent 48%, rgba(255, 255, 255, 0.18) 49%, transparent 50%),
+    linear-gradient(8deg, transparent 49%, rgba(255, 107, 0, 0.25) 50%, transparent 51%);
+  background-size: 260px 80px, 220px 100px, 300px 120px;
+  filter: blur(0.4px);
+  opacity: 0.65;
+}
+
+.mac-network-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent, rgba(0, 0, 0, 0.76));
+}
+
+.mac-message-visual {
+  min-height: 190px;
+  background: #090909;
+  padding: 2rem;
+}
+
+.mac-message-visual span {
+  display: block;
+  height: 8px;
+  margin-top: 18px;
+  background: #202020;
+}
+
+.mac-message-visual span:first-child {
+  height: 30px;
+  width: 30px;
+  border-radius: 999px;
+  margin-top: 0;
+  background: #2a2a2a;
+}
+
+.mac-message-visual span:nth-child(2) {
+  width: 32%;
+}
+
+.mac-message-visual span:nth-child(3) {
+  width: 88%;
+}
+
+.mac-message-visual span:nth-child(4) {
+  width: 48%;
+  background: #612713;
+}
+
+.mac-ai-banner {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.045);
+  border-radius: 1rem;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.84), rgba(0, 0, 0, 0.18) 58%, rgba(0, 0, 0, 0.5)),
+    #080808;
+  padding: 7rem 4rem;
+}
+
+.mac-ai-banner::before {
+  content: '';
+  position: absolute;
+  inset: -22% -4% -18% 34%;
+  background:
+    repeating-linear-gradient(104deg, transparent 0 22px, rgba(255, 107, 0, 0.58) 23px, transparent 25px),
+    repeating-linear-gradient(74deg, transparent 0 36px, rgba(255, 107, 0, 0.3) 37px, transparent 39px);
+  filter: blur(1px);
+  opacity: 0.82;
+  transform: rotate(-5deg);
+}
+
+.mac-ai-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 50%, rgba(255, 107, 0, 0.16), transparent 36%);
+}
+
+.mac-post-visual,
+.mac-analytics-visual {
+  position: relative;
+  min-height: 540px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  border-radius: 0.25rem;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.08), transparent 24%),
+    linear-gradient(135deg, #111, #202020 54%, #0a0a0a);
+}
+
+.mac-post-phone {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 360px;
+  width: 175px;
+  border: 6px solid #181818;
+  border-radius: 2rem;
+  background: #101010;
+  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.55);
+  transform: translate(-50%, -50%);
+}
+
+.mac-post-avatar {
+  height: 86px;
+  width: 74px;
+  margin: 120px auto 24px;
+  background:
+    radial-gradient(circle at 50% 34%, #777 0 18%, transparent 19%),
+    linear-gradient(#303030, #666);
+}
+
+.mac-post-phone span {
+  display: block;
+  height: 6px;
+  width: 64%;
+  margin: 12px auto;
+  background: #2c2c2c;
+}
+
+.mac-post-phone span:nth-of-type(2) {
+  width: 48%;
+}
+
+.mac-post-phone span:nth-of-type(3) {
+  width: 72%;
+}
+
+.mac-analytics-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mac-analytics-visual::before {
+  content: '';
+  position: absolute;
+  height: 64%;
+  width: 82%;
+  background: #080808;
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.06);
+}
+
+.mac-analytics-bars {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 220px;
+  width: 68%;
+  align-items: flex-end;
+  gap: 3px;
+  border-left: 1px solid #242424;
+  border-bottom: 1px solid #242424;
+  padding: 0 0.5rem;
+}
+
+.mac-analytics-bars span {
+  flex: 1;
+  min-width: 2px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.12));
+}
+
+.mac-feature-cta {
+  overflow: hidden;
+  border-radius: 1rem;
+  background:
+    radial-gradient(circle at 80% 120%, rgba(255, 255, 255, 0.16), transparent 28%),
+    linear-gradient(135deg, #ff5b00, #ff7727);
+}
+
+.mac-pricing {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mac-plan-card {
+  position: relative;
+  min-height: 580px;
+  background: #202020;
+  padding: 3rem 2.75rem 2.5rem;
+}
+
+.mac-plan-card.is-pro {
+  border: 1px solid rgba(255, 107, 0, 0.38);
+  background: #282828;
+  box-shadow: 0 28px 80px rgba(255, 107, 0, 0.06);
+}
+
+.mac-comparison-table {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #111;
+}
+
+.mac-comparison-table span {
+  min-height: 68px;
+  padding: 1.55rem 1.75rem;
+  color: #62626a;
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.mac-comparison-table .grid:first-child span {
+  color: #5d5d66;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+.mac-comparison-table .grid span + span {
+  border-left: 1px solid rgba(255, 255, 255, 0.025);
+}
+
+.mac-server-room {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, #111 0%, rgba(17, 17, 17, 0.1) 24%, rgba(17, 17, 17, 0.2) 72%, #070707 100%),
+    radial-gradient(circle at 50% 44%, transparent 0 10%, rgba(0, 0, 0, 0.92) 44%),
+    #070707;
+}
+
+.mac-server-room::before,
+.mac-server-room::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+}
+
+.mac-server-room::before {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 78px, rgba(255, 255, 255, 0.09) 80px, transparent 86px),
+    repeating-linear-gradient(90deg, transparent 0 18px, rgba(255, 255, 255, 0.025) 20px, transparent 22px);
+  transform: perspective(500px) rotateX(18deg) scaleX(1.2);
+}
+
+.mac-server-room::after {
+  background:
+    radial-gradient(circle at 7% 48%, rgba(255, 255, 255, 0.55), transparent 1.5%),
+    radial-gradient(circle at 92% 50%, rgba(255, 255, 255, 0.45), transparent 1.5%),
+    repeating-linear-gradient(180deg, transparent 0 24px, rgba(255, 255, 255, 0.08) 25px, transparent 27px);
+  filter: blur(1px);
+}
+
+.mac-dashboard-shell {
+  min-height: 100vh;
+  background: #101010;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mac-dash-page {
+  margin: 0 auto;
+  max-width: 1090px;
+}
+
+.mac-sidebar-avatar {
+  height: 46px;
+  width: 46px;
+  flex: 0 0 auto;
+  border-radius: 0.6rem;
+  background:
+    radial-gradient(circle at 50% 28%, #e7b184 0 11%, transparent 12%),
+    radial-gradient(circle at 50% 76%, #312018 0 32%, transparent 33%),
+    linear-gradient(135deg, #1f3a45, #101010 55%, #ff6b00);
+  box-shadow: inset 0 0 0 1px rgba(255, 107, 0, 0.35);
+}
+
+.mac-dash-nav-item {
+  position: relative;
+}
+
+.mac-dash-nav-item[data-active='true'] {
+  background: #28282b;
+}
+
+.mac-dash-nav-item[data-active='true']::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  width: 2px;
+  background: #ff6b00;
+}
+
+.mac-dash-metric,
+.mac-dash-quick,
+.mac-weekly,
+.mac-activity-list {
+  background: #202020;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+}
+
+.mac-dash-metric {
+  min-height: 300px;
+  padding: 2.35rem;
+}
+
+.mac-dash-quick {
+  min-height: 300px;
+  border-color: rgba(255, 107, 0, 0.24);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 107, 0, 0.1), transparent 30%),
+    #202020;
+  padding: 2.35rem;
+}
+
+.mac-dash-action {
+  display: flex;
+  min-height: 88px;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  background: #18191c;
+  padding: 1.25rem 1.5rem;
+  color: #e5e0dc;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.mac-dash-action:hover {
+  border-color: rgba(255, 107, 0, 0.28);
+  background: #202124;
+}
+
+.mac-weekly {
+  min-height: 640px;
+  padding: 2rem;
+}
+
+.mac-weekly-chart {
+  position: relative;
+  margin-top: 3.75rem;
+  height: 480px;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    #202020;
+  background-size: 100% 100px;
+}
+
+.mac-weekly-chart::before {
+  content: '';
+  position: absolute;
+  inset: 16% 4% 12%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+.mac-chart-line {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 107, 0, 0.48), transparent);
+  opacity: 0.28;
+}
+
+.mac-chart-line.line-one {
+  top: 44%;
+}
+
+.mac-chart-line.line-two {
+  top: 62%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+}
+
+.mac-chart-axis {
+  position: absolute;
+  bottom: 0;
+  left: 6%;
+  right: 6%;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.045);
+  padding-top: 1rem;
+}
+
+.mac-chart-axis span {
+  color: #43434b;
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.mac-post-card {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 0.35rem;
+  background: #080808;
+}
+
+.mac-post-art {
+  position: absolute;
+  inset: 0;
+}
+
+.mac-post-art.architecture {
+  background:
+    linear-gradient(180deg, transparent 0 38%, #27343a 39% 60%, transparent 61%),
+    linear-gradient(168deg, transparent 0 54%, rgba(255, 91, 0, 0.95) 55%, transparent 56%),
+    linear-gradient(174deg, transparent 0 70%, rgba(255, 91, 0, 0.85) 71%, transparent 72%),
+    radial-gradient(circle at 44% 40%, rgba(42, 89, 98, 0.65), transparent 38%),
+    #071011;
+}
+
+.mac-post-art.velocity {
+  background:
+    repeating-linear-gradient(142deg, transparent 0 18px, rgba(255, 107, 0, 0.9) 20px, transparent 24px),
+    linear-gradient(135deg, #060606, #141414 55%, #080808);
+  filter: saturate(1.2);
+}
+
+.mac-activity-list {
+  overflow: hidden;
+  border-radius: 0.35rem;
+}
+
+.mac-activity-item {
+  display: flex;
+  gap: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+  padding: 1.45rem 1.25rem;
+}
+
+.mac-activity-item:last-child {
+  border-bottom: 0;
+}
+
+.mac-integrations-page {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding-bottom: 4rem;
+}
+
+.mac-integrations-topbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mac-integrations-search {
+  display: flex;
+  height: 48px;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 0.3rem;
+  background: #131417;
+  padding: 0 1rem;
+}
+
+.mac-integrations-hero {
+  position: relative;
+  margin-top: 4rem;
+  min-height: 265px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 0.45rem;
+  background: #1d1d1f;
+  padding: 2.6rem 2rem;
+}
+
+.mac-integration-card {
+  display: flex;
+  min-height: 106px;
+  align-items: center;
+  gap: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.045);
+  border-radius: 0.45rem;
+  background: #202020;
+  padding: 1.55rem 1.5rem;
+}
+
+.mac-integration-icon {
+  display: flex;
+  height: 56px;
+  width: 56px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8rem;
+}
+
+.mac-integration-icon.instagram {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#202020, #202020) padding-box,
+    linear-gradient(135deg, #ffb000, #ff2c5f, #944dff) border-box;
+  color: white;
+}
+
+.mac-integration-icon.salesforce {
+  border: 1px solid rgba(61, 132, 255, 0.28);
+  background: rgba(61, 132, 255, 0.12);
+  color: #3d84ff;
+}
+
+.mac-integration-connect {
+  min-width: 116px;
+  border: 1px solid rgba(255, 107, 0, 0.28);
+  border-radius: 0.25rem;
+  padding: 0.7rem 1rem;
+  color: #ff6b00;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.mac-integration-connect:hover {
+  background: #ff6b00;
+  color: #111;
+}
+
+.mac-integration-menu {
+  width: 192px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.25rem;
+  background: #1a1b1f;
+  padding: 1rem 0;
+  color: white;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
+}
+
+.mac-integration-menu-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  color: #d8d8d8;
+  text-align: left;
+  transition: background-color 160ms ease;
+}
+
+.mac-integration-menu-item:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.mac-integrations-explore {
+  display: flex;
+  min-height: 154px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 0.45rem;
+  color: #6b6b73;
+  font-size: 1rem;
+  font-weight: 600;
+  transition:
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.mac-integrations-explore:hover {
+  border-color: rgba(255, 107, 0, 0.28);
+  color: #a1a1aa;
+}
+
+.mac-automations-page {
+  margin: 0 auto;
+  max-width: 1120px;
+  padding-bottom: 4rem;
+}
+
+.mac-automation-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0.25rem;
+  background: #15161a;
+}
+
+.mac-automation-tabs button {
+  height: 42px;
+  min-width: 72px;
+  padding: 0 1.2rem;
+  color: #5f5f68;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.mac-automation-tabs button.is-active {
+  background: #28292d;
+  color: #d3d0cc;
+}
+
+.mac-automation-filter {
+  height: 42px;
+  min-width: 106px;
+  border: 1px solid rgba(255, 107, 0, 0.65);
+  border-radius: 0.25rem;
+  color: #ff6b00;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.mac-automation-filter::before {
+  content: '';
+  display: inline-block;
+  height: 2px;
+  width: 10px;
+  margin-right: 0.75rem;
+  vertical-align: middle;
+  background: #ff6b00;
+  box-shadow: 0 4px 0 #ff6b00, 0 -4px 0 #ff6b00;
+}
+
+.mac-automation-card {
+  display: flex;
+  min-height: 245px;
+  gap: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 0.45rem;
+  background: #191919;
+  padding: 2.35rem 2rem;
+}
+
+.mac-automation-card.is-draft {
+  opacity: 0.38;
+}
+
+.mac-automation-icon {
+  display: flex;
+  height: 48px;
+  width: 48px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  background: #28292d;
+}
+
+.mac-automation-label {
+  display: inline-flex;
+  background: #27282c;
+  padding: 0.45rem 0.8rem;
+  color: #9a9aa2;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.mac-automation-label.is-orange {
+  background: rgba(255, 107, 0, 0.12);
+  color: #ff6b00;
+  text-transform: none;
+}
+
+.mac-automation-switch {
+  display: flex;
+  height: 24px;
+  width: 48px;
+  align-items: center;
+  border-radius: 999px;
+  background: #28292d;
+  padding: 2px;
+}
+
+.mac-automation-switch span {
+  height: 20px;
+  width: 20px;
+  border-radius: 999px;
+  background: #9a9a9a;
+  transition: transform 160ms ease;
+}
+
+.mac-automation-switch.is-active {
+  background: #ff6b00;
+}
+
+.mac-automation-switch.is-active span {
+  background: white;
+  transform: translateX(24px);
+}
+
+.mac-reach-card {
+  min-height: 395px;
+  border-radius: 0.9rem;
+  background: #2b2b2b;
+  padding: 2.5rem;
+}
+
+.mac-reach-chart {
+  display: flex;
+  height: 270px;
+  align-items: flex-end;
+  gap: 0;
+  margin-top: 3rem;
+}
+
+.mac-reach-chart span {
+  flex: 1;
+  background: #292a2d;
+}
+
+.mac-reach-chart span.highlight {
+  max-width: 54px;
+  background: #a35b22;
+}
+
+.mac-reach-chart span.highlight:last-of-type {
+  background: #ff7419;
+}
+
+.mac-pro-card {
+  align-self: center;
+  border-radius: 1rem;
+  background: #ff7419;
+  padding: 2.5rem;
+  box-shadow: 0 0 45px rgba(255, 107, 0, 0.24);
 }
 
 @keyframes hero-float {
@@ -305,6 +1627,99 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .mac-card-chart {
+    opacity: 0.18;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .mac-dashboard {
+    min-height: 640px;
+  }
+
+  .mac-dashboard > div:first-child {
+    grid-template-columns: 1fr;
+  }
+
+  .mac-flow-lines {
+    display: none;
+  }
+
+  .mac-node {
+    width: 100% !important;
+  }
+
+  .mac-monitor-frame {
+    min-height: 330px;
+  }
+
+  .mac-feature-phone-frame,
+  .mac-post-visual,
+  .mac-analytics-visual {
+    min-height: 360px;
+  }
+
+  .mac-feature-card-large,
+  .mac-ai-banner {
+    padding: 2rem;
+  }
+
+  .mac-ai-banner {
+    min-height: 460px;
+  }
+
+  .mac-ai-banner::before {
+    inset: 18% -10% -18% 12%;
+    opacity: 0.42;
+  }
+
+  .mac-comparison-table {
+    overflow-x: auto;
+  }
+
+  .mac-comparison-table .grid {
+    min-width: 680px;
+  }
+
+  .mac-plan-card {
+    min-height: auto;
+    padding: 2rem;
+  }
+
+  .mac-weekly {
+    min-height: 480px;
+  }
+
+  .mac-weekly-chart {
+    height: 320px;
+  }
+
+  .mac-dash-metric,
+  .mac-dash-quick {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .mac-integrations-topbar {
+    grid-template-columns: 1fr;
+  }
+
+  .mac-integration-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .mac-automation-card {
+    flex-direction: column;
+  }
+
+  .mac-automation-tabs {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-orb {
     animation-duration: 16s;
@@ -317,7 +1732,7 @@
   }
 
   .dashboard-panel {
-    backdrop-filter: blur(10px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
   }
 }
 

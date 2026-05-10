@@ -1,13 +1,10 @@
 'use client'
+
 import { usePaths } from '@/hooks/user-nav'
-import { LogoSmall } from '@/svgs/logo-small'
+import { CirclePlus } from 'lucide-react'
+import Link from 'next/link'
 import React from 'react'
 import Items from './items'
-import { Separator } from '@/components/ui/separator'
-import ClerkAuthState from '../clerk-auth-state'
-import { HelpDuoToneWhite } from '@/icons'
-import { SubscriptionPlan } from '../subscription-plan'
-import UpgradeCard from './upgrade'
 
 type Props = {
   slug: string
@@ -17,71 +14,37 @@ const Sidebar = ({ slug }: Props) => {
   const { page } = usePaths()
 
   return (
-    <div
-      className="w-[250px] 
-    border-[1px]
-    fixed 
-    left-0 
-    lg:inline-block
-    border-white/10 
-    bg-[linear-gradient(180deg,rgba(239,125,50,0.22)_0%,rgba(22,17,13,0.96)_10%,rgba(9,9,9,0.98)_100%)] 
-     hidden 
-     bottom-0 
-     top-0 
-     m-3 
-     rounded-3xl 
-     overflow-hidden"
-    >
-      <div
-        className="flex flex-col 
-      gap-y-5
-       w-full 
-       h-full 
-       p-3 
-       bg-[#0e0c0a]/85 
-       bg-clip-padding 
-       backdrop-filter 
-       backdrop--blur__safari 
-       backdrop-blur-3xl"
-      >
-        <div className="flex gap-x-3 items-center p-5 justify-center">
-          <LogoSmall />
-          <div className="flex flex-col">
-            <p className="text-xs uppercase tracking-[0.28em] text-[#ffb36a]">
-              imate
+    <aside className="mac-dash-sidebar fixed bottom-0 left-0 top-0 z-30 hidden w-[300px] border-r border-white/[0.06] bg-[#17181c] lg:block">
+      <div className="flex h-full flex-col px-7 py-10">
+        <Link href={`/dashboard/${slug}`} className="text-2xl font-black uppercase tracking-[-0.05em] text-white">
+          MACSTUDIO
+        </Link>
+
+        <div className="mt-10 flex items-center gap-4 rounded border border-white/[0.07] bg-white/[0.025] p-4">
+          <div className="mac-sidebar-avatar" />
+          <div>
+            <p className="text-base font-black leading-none text-white">@creator_handle</p>
+            <p className="mt-2 text-[11px] font-black uppercase tracking-[0.12em] text-zinc-600">
+              Professional Plan
             </p>
-            <p className="text-xs text-zinc-400">Control center</p>
           </div>
         </div>
-        <div className="flex flex-col py-3">
-          <Items
-            page={page}
-            slug={slug}
-          />
+
+        <nav className="mt-10 -mx-7">
+          <Items page={page} slug={slug} />
+        </nav>
+
+        <div className="mt-auto">
+          <Link
+            href={`/dashboard/${slug}/automations`}
+            className="flex h-14 items-center justify-center gap-3 rounded bg-[#ff5b00] text-lg font-black text-black transition hover:bg-[#ff741f]"
+          >
+            <CirclePlus className="h-6 w-6" />
+            New Automation
+          </Link>
         </div>
-        <div className="px-16">
-          <Separator
-            orientation="horizontal"
-            className="bg-white/10"
-          />
-        </div>
-        <div className="px-3 flex flex-col gap-y-5">
-          <div className="flex gap-x-2">
-            <ClerkAuthState />
-            <p className="text-zinc-400">Profile</p>
-          </div>
-          <div className="flex gap-x-3">
-            <HelpDuoToneWhite />
-            <p className="text-zinc-400">Help</p>
-          </div>
-        </div>
-        <SubscriptionPlan type="FREE">
-          <div className="flex-1 flex flex-col justify-end">
-            <UpgradeCard />
-          </div>
-        </SubscriptionPlan>
       </div>
-    </div>
+    </aside>
   )
 }
 

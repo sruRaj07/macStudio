@@ -1,404 +1,404 @@
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent } from '@/components/ui/card'
 import {
-  ArrowRight,
+  BarChart3,
   Bot,
-  ChartNoAxesCombined,
-  Check,
-  MessageSquareText,
-  Sparkles,
+  CheckCircle2,
+  CircleDot,
+  Camera,
+  MessageSquare,
+  MousePointer2,
+  Network,
+  Share2,
+  UserRound,
+  Zap,
 } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 
-const profileImages = [
-  { src: '/images/a1.jpg', alt: 'Inbox automation preview' },
-  { src: '/images/a2.jpg', alt: 'Audience engagement preview' },
-  { src: '/images/a3.jpg', alt: 'Creator workflow preview' },
-  { src: '/images/a4.jpg', alt: 'Analytics dashboard preview' },
+const trustedBy = [
+  'CREATOR.CO',
+  'AGENCY X',
+  'SOCIAL ARCHITECTS',
+  'PEAK MEDIA',
+  'INFLUENCE+',
 ]
 
 const featureCards = [
   {
-    title: 'Smart Replies',
-    description:
-      'Trigger message flows from keywords, comments, and account activity without losing your brand tone.',
-    icon: <Bot className="h-5 w-5 text-[#ef7d32]" />,
+    title: 'Smart DM Automation',
+    copy:
+      'Create complex branching workflows that trigger when someone comments a keyword. Guide them from "interested" to "customer" in seconds.',
+    icon: <Zap className="h-4 w-4" />,
+    className: 'lg:col-span-2',
+    visual: 'chart',
   },
   {
-    title: 'DM Conversion Paths',
-    description:
-      'Turn engagement into guided conversations that move people from curiosity to action.',
-    icon: <MessageSquareText className="h-5 w-5 text-[#ef7d32]" />,
+    title: 'Instant Replies',
+    copy:
+      'Auto-reply to every comment with personalized, human-like responses to boost your post reach instantly.',
+    icon: <MessageSquare className="h-4 w-4" />,
+    visual: 'reply',
   },
   {
-    title: 'Actionable Insights',
-    description:
-      'See which posts pull attention, which workflows fire, and where your best engagement is coming from.',
-    icon: <ChartNoAxesCombined className="h-5 w-5 text-[#ef7d32]" />,
+    title: 'AI Triage',
+    copy:
+      'Our AI identifies high-intent leads and notifies your team when a human needs to step in for the close.',
+    icon: <Bot className="h-4 w-4" />,
+  },
+  {
+    title: 'Conversion Analytics',
+    copy:
+      'Track every dollar generated from your automations with deep attribution modeling.',
+    icon: <BarChart3 className="h-4 w-4" />,
+    className: 'lg:col-span-2',
+    visual: 'analytics',
   },
 ]
 
-const plans = [
+const steps = [
   {
-    name: 'Starter',
-    price: '0',
-    description: 'A clean launchpad for creators testing Instagram automation.',
-    features: [
-      'Keyword-based auto replies',
-      'Basic engagement tracking',
-      'Single connected account',
-      'Starter analytics dashboard',
-    ],
+    id: '01',
+    title: 'Connect Securely',
+    copy:
+      'Link your Instagram Professional account in one click. We use official Meta APIs to keep your account safe and compliant.',
   },
   {
-    name: 'imate Smart AI',
-    price: '49',
-    description: 'Advanced automation for brands that want fast engagement and richer insight.',
-    features: [
-      'AI-driven responses',
-      'Unlimited automation activity',
-      'Priority support',
-      'Post-level analytics',
-      'Comment + DM workflow orchestration',
-      'Performance monitoring',
-    ],
-    highlighted: true,
+    id: '02',
+    title: 'Build Your Flow',
+    copy:
+      'Drag and drop nodes to create a conversation. Set triggers for specific posts, stories, or live broadcasts.',
+  },
+  {
+    id: '03',
+    title: 'Watch the Growth',
+    copy:
+      'Launch and eliminate handle the rest. Track your engagement spikes and conversion rates in real-time.',
   },
 ]
 
-const stats = [
-  { label: 'Auto-replies orchestrated', value: '24/7' },
-  { label: 'Workflow setup time', value: '<10 min' },
-  { label: 'Insights surface', value: 'Posts + DMs' },
+const pricingPlans = [
+  {
+    name: 'Growth',
+    price: '$49',
+    points: ['Up to 5,000 DMs/mo', '3 Active Workflows', 'Standard Analytics'],
+    cta: 'Select Plan',
+  },
+  {
+    name: 'Scale',
+    price: '$149',
+    points: ['Unlimited DMs', 'Unlimited Workflows', 'AI Triage & Lead Labeling', 'CRM Integrations'],
+    cta: 'Select Plan',
+    featured: true,
+  },
+  {
+    name: 'Agency',
+    price: '$499',
+    points: ['Multi-account Management', 'White-labeled Reports', 'Priority 24/7 Support'],
+    cta: 'Contact Sales',
+  },
 ]
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,rgba(255,145,77,0.18),transparent_24%),linear-gradient(180deg,#120d0a_0%,#090909_45%,#0b0b0b_100%)] text-white">
-      <div className="pointer-events-none absolute inset-0 marketing-grid opacity-30" />
-      <div className="hero-orb absolute left-[-6rem] top-24 h-72 w-72 rounded-full bg-[#ef7d32]/30" />
-      <div className="hero-orb hero-orb-delay absolute right-[-6rem] top-40 h-80 w-80 rounded-full bg-[#ff9d4d]/20" />
-      <div className="hero-orb hero-orb-slow absolute bottom-10 left-1/3 h-56 w-56 rounded-full bg-[#ffb36a]/12" />
+    <main className="mac-landing min-h-screen bg-[#0f0f0f] text-white">
+      <section className="mac-hero relative overflow-hidden">
+        <header className="sticky top-0 z-30 border-b border-white/[0.04] bg-[#080808]/95 backdrop-blur">
+          <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-8">
+            <Link href="/" className="text-lg font-black uppercase tracking-[-0.03em] text-white">
+              MACSTUDIO
+            </Link>
 
-      <header className="relative z-20">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 md:px-8">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="pulse-border flex h-11 w-11 items-center justify-center rounded-2xl border border-[#ff9d4d]/40 bg-[#1a120d]">
-              <span className="text-lg font-semibold text-[#ff9d4d]">i</span>
+            <nav className="hidden items-center gap-9 text-xs font-semibold md:flex">
+              <Link href="/" className="text-[#ff6b00]">
+                Home
+              </Link>
+              <Link href="/features" className="text-zinc-500 transition hover:text-white">
+                Features
+              </Link>
+              <Link href="/pricing" className="text-zinc-500 transition hover:text-white">
+                Pricing
+              </Link>
+            </nav>
+
+            <div className="flex items-center gap-4">
+              <Link href="/sign-in" className="hidden text-xs font-semibold text-zinc-500 transition hover:text-white sm:block">
+                Login
+              </Link>
+              <Link
+                href="/sign-up"
+                className="inline-flex h-10 items-center justify-center bg-[#ff6b00] px-5 text-xs font-black text-black transition hover:bg-[#ff7f1a]"
+              >
+                Start Free
+              </Link>
             </div>
-            <span className="text-xl font-semibold tracking-[0.12em] text-white lowercase">
-              imate
-            </span>
-          </Link>
+          </div>
+        </header>
 
-          <nav className="hidden items-center gap-8 md:flex">
-            <Link href="#features" className="text-sm text-zinc-300 transition hover:text-white">
-              Features
-            </Link>
-            <Link href="#analytics" className="text-sm text-zinc-300 transition hover:text-white">
-              Analytics
-            </Link>
-            <Link href="#pricing" className="text-sm text-zinc-300 transition hover:text-white">
-              Pricing
-            </Link>
-          </nav>
+        <div className="mx-auto max-w-7xl px-5 pb-28 pt-20 text-center md:px-8 md:pb-36 md:pt-24">
+          <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[#ff6b00]">
+            The new standard for creators
+          </p>
+          <h1 className="mx-auto mt-4 max-w-4xl text-balance text-5xl font-black leading-[0.98] tracking-[-0.06em] text-[#f6f3ee] md:text-7xl">
+            Turn every Instagram comment into a{' '}
+            <span className="text-[#ff6b00]">conversion flow.</span>
+          </h1>
+          <p className="mx-auto mt-8 max-w-xl text-sm font-medium leading-6 text-zinc-500 md:text-base">
+            Scale your engagement without the manual grind. Automate DMs, nurture leads,
+            and close sales directly inside Instagram.
+          </p>
 
-          <div className="flex items-center gap-3">
-            <Button
-              asChild
-              variant="ghost"
-              className="hidden text-zinc-300 hover:bg-white/5 hover:text-white md:inline-flex"
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/sign-up"
+              className="inline-flex h-12 min-w-48 items-center justify-center bg-[#ff6b00] px-7 text-sm font-black text-black transition hover:bg-[#ff7f1a]"
             >
-              <Link href="/sign-in">Sign in</Link>
-            </Button>
-            <Button
-              asChild
-              className="rounded-full bg-[#ef7d32] px-5 text-white hover:bg-[#db6b22]"
+              Launch Your First Flow
+            </Link>
+            <Link
+              href="/features"
+              className="inline-flex h-12 min-w-40 items-center justify-center bg-[#222] px-7 text-sm font-black text-white transition hover:bg-[#2c2c2c]"
             >
-              <Link href="/sign-up">Start Free</Link>
-            </Button>
+              Watch Demo
+            </Link>
+          </div>
+
+          <div className="mac-dashboard-frame mx-auto mt-24 max-w-5xl rounded-md p-3">
+            <div className="mac-dashboard relative overflow-hidden rounded-sm">
+              <div className="grid h-full grid-cols-[1fr_0.9fr] gap-6 p-7 text-left lg:grid-cols-[1.25fr_0.85fr]">
+                <div className="space-y-5">
+                  <div className="flex items-center gap-3 text-xs font-bold text-zinc-500">
+                    <CircleDot className="h-4 w-4 text-[#55706f]" />
+                    liveflow_designer.automation
+                  </div>
+                  <div className="grid gap-4">
+                    {['Comment: PRICE', 'DM: send trial link', 'Qualify response', 'Create checkout reminder'].map(
+                      (item, index) => (
+                        <div key={item} className="mac-node relative w-[68%] rounded px-4 py-3">
+                          <p className="text-[11px] font-black text-[#ff7b18]">{item}</p>
+                          <p className="mt-1 text-[10px] font-medium text-zinc-600">
+                            {index === 0 ? 'Trigger active across 8 posts' : 'Message branch ready'}
+                          </p>
+                        </div>
+                      ),
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs font-black text-[#ff7b18]">Workflow</p>
+                    <div className="flex h-10 w-10 items-center justify-center rounded bg-[#ff6b00] text-black">
+                      <UserRound className="h-5 w-5" />
+                    </div>
+                  </div>
+                  {['Capture buyer intent', 'Open DM thread', 'Generate product link', 'Confirm fit'].map((item) => (
+                    <div key={item} className="rounded border border-white/[0.05] bg-white/[0.035] px-4 py-3">
+                      <p className="text-[11px] font-bold text-zinc-400">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mac-flow-lines" aria-hidden="true">
+                <span className="line line-a" />
+                <span className="line line-b" />
+                <span className="line line-c" />
+                <span className="dot dot-a" />
+                <span className="dot dot-b" />
+                <span className="dot dot-c" />
+                <span className="dot dot-d" />
+                <span className="dot dot-e" />
+              </div>
+
+              <div className="absolute bottom-0 right-0 w-56 border-l border-t border-[#322318] bg-[#1b1b1b] p-4 text-left">
+                <div className="flex items-center gap-2 text-[10px] font-black uppercase text-zinc-400">
+                  <Zap className="h-3 w-3 fill-[#ff6b00] text-[#ff6b00]" />
+                  Active flow
+                </div>
+                <div className="mt-3 h-1.5 bg-zinc-700">
+                  <div className="h-full w-4/5 bg-[#ff6b00]" />
+                </div>
+                <p className="mt-3 text-[10px] font-semibold text-zinc-600">1,240 Sales generated today</p>
+              </div>
+            </div>
           </div>
         </div>
-      </header>
+      </section>
 
-      <section className="relative z-10 mx-auto flex max-w-7xl flex-col gap-14 px-4 pb-20 pt-10 md:px-8 md:pb-28 md:pt-16">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="space-y-8">
-            <Badge className="reveal-up border border-[#ff9d4d]/25 bg-[#ff9d4d]/10 px-4 py-1 text-[#ffb36a] hover:bg-[#ff9d4d]/10">
-              Instagram automation, reimagined for modern growth
-            </Badge>
+      <section className="border-y border-white/[0.035] bg-[#0a0a0a] py-12">
+        <p className="text-center text-xs font-bold text-zinc-600">Trusted by 10,000+ creators and agencies</p>
+        <div className="mx-auto mt-8 grid max-w-5xl grid-cols-2 gap-6 px-5 text-center text-sm font-black text-zinc-600 md:grid-cols-5">
+          {trustedBy.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+      </section>
 
-            <div className="space-y-5">
-              <h1 className="reveal-up reveal-delay-1 max-w-4xl text-5xl font-semibold leading-[1.02] text-white md:text-7xl">
-                imate turns comments and DMs into a smooth, always-on conversion loop.
-              </h1>
-              <p className="reveal-up reveal-delay-2 max-w-2xl text-lg leading-8 text-zinc-300 md:text-xl">
-                Build automations that feel human, monitor what content creates momentum, and run your Instagram presence from one clean orange-powered command center.
-              </p>
-            </div>
+      <section className="mx-auto max-w-7xl px-5 py-28 md:px-8">
+        <div className="text-center">
+          <h2 className="text-4xl font-black tracking-[-0.05em] text-[#f6f3ee] md:text-5xl">
+            Engineered for absolute control
+          </h2>
+          <p className="mt-3 text-sm font-medium text-zinc-600">
+            Precision tools for the modern Instagram architect.
+          </p>
+        </div>
 
-            <div className="reveal-up reveal-delay-3 flex flex-col gap-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="rounded-full bg-[#ef7d32] px-7 text-white hover:bg-[#db6b22]"
-              >
-                <Link href="/sign-up">
-                  Launch with imate
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-full border-white/15 bg-white/5 px-7 text-white hover:bg-white/10"
-              >
-                <Link href="/dashboard">Explore Dashboard</Link>
-              </Button>
-            </div>
+        <div className="mt-16 grid gap-5 lg:grid-cols-3">
+          {featureCards.map((feature) => (
+            <article key={feature.title} className={`mac-feature-card ${feature.className ?? ''}`}>
+              <div className="relative z-10 max-w-md">
+                <div className="mb-8 flex h-10 w-10 items-center justify-center bg-white/[0.035] text-[#ff6b00]">
+                  {feature.icon}
+                </div>
+                <h3 className="text-2xl font-black tracking-[-0.04em] text-[#f6f3ee]">{feature.title}</h3>
+                <p className="mt-4 text-sm font-medium leading-6 text-zinc-500">{feature.copy}</p>
+              </div>
 
-            <div className="reveal-up reveal-delay-4 grid gap-4 sm:grid-cols-3">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl"
-                >
-                  <p className="text-2xl font-semibold text-white">{stat.value}</p>
-                  <p className="mt-2 text-sm text-zinc-400">{stat.label}</p>
+              {feature.visual === 'chart' && (
+                <div className="mac-card-chart" aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              )}
+              {feature.visual === 'reply' && <div className="mac-reply-meter" aria-hidden="true" />}
+              {feature.visual === 'analytics' && <Network className="absolute right-8 top-10 h-24 w-24 text-white/[0.03]" />}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-[#070707] py-28">
+        <div className="mx-auto grid max-w-7xl gap-14 px-5 md:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-[#ff6b00]">The workflow</p>
+            <h2 className="mt-3 max-w-lg text-4xl font-black leading-[1.02] tracking-[-0.055em] text-[#f6f3ee] md:text-5xl">
+              Three steps to total automation.
+            </h2>
+
+            <div className="mt-12 space-y-8">
+              {steps.map((step) => (
+                <div key={step.id} className="grid grid-cols-[3rem_1fr] gap-4">
+                  <p className="text-sm font-black text-[#ff6b00]">{step.id}</p>
+                  <div>
+                    <h3 className="text-base font-black text-[#e9e6df]">{step.title}</h3>
+                    <p className="mt-2 max-w-lg text-sm font-medium leading-6 text-zinc-600">{step.copy}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="reveal-up reveal-delay-3 relative">
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#120f0d]/80 p-4 shadow-[0_30px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
-              <div className="mb-4 flex items-center justify-between rounded-2xl border border-white/8 bg-white/5 px-4 py-3">
-                <div>
-                  <p className="text-sm text-zinc-400">Live automation signal</p>
-                  <p className="text-lg font-semibold text-white">Reply velocity is up 38%</p>
+          <div className="mac-monitor-frame">
+            <div className="mac-monitor-light" />
+            <div className="mac-monitor-screen">
+              <div className="mac-monitor-ui">
+                <div className="space-y-2">
+                  <div className="h-2 w-24 bg-cyan-200/30" />
+                  <div className="h-2 w-32 bg-cyan-200/20" />
+                  <div className="h-2 w-20 bg-cyan-200/20" />
                 </div>
-                <div className="rounded-full bg-[#ef7d32]/15 p-3 text-[#ffb36a]">
-                  <Sparkles className="h-5 w-5" />
+                <div className="grid grid-cols-3 gap-2">
+                  {Array.from({ length: 9 }).map((_, index) => (
+                    <span key={index} />
+                  ))}
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                {profileImages.map((image, index) => (
-                  <div
-                    key={image.src}
-                    className={`group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 ${
-                      index === 0 ? 'sm:col-span-2 aspect-[16/10]' : 'aspect-square'
-                    }`}
-                  >
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      priority={index === 0}
-                      loading={index === 0 ? 'eager' : 'lazy'}
-                      className="object-cover transition duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-4">
-                      <div>
-                        <p className="text-sm font-medium text-white">
-                          {index === 0 ? 'Automation cockpit' : index === 1 ? 'DM intelligence' : index === 2 ? 'Comment routing' : 'Insight monitor'}
-                        </p>
-                        <p className="text-xs text-zinc-300">
-                          {index === 0
-                            ? 'Monitor workflows and account activity in one place'
-                            : 'Fast, smooth, and built for creators'}
-                        </p>
-                      </div>
-                      <div className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs text-white">
-                        Live
-                      </div>
-                    </div>
+      <section className="mx-auto max-w-7xl px-5 py-28 md:px-8">
+        <div className="text-center">
+          <h2 className="text-4xl font-black tracking-[-0.05em] text-[#f6f3ee] md:text-5xl">
+            Choose your power level
+          </h2>
+          <p className="mt-3 text-sm font-medium text-zinc-600">Flexible plans for creators at every scale.</p>
+        </div>
+
+        <div className="mt-16 grid gap-8 lg:grid-cols-3 lg:items-center">
+          {pricingPlans.map((plan) => (
+            <article key={plan.name} className={`mac-price-card ${plan.featured ? 'is-featured' : ''}`}>
+              {plan.featured && <span className="mac-popular">Most Popular</span>}
+              <p className="text-lg font-black text-zinc-400">{plan.name}</p>
+              <div className="mt-2 flex items-end gap-2">
+                <h3 className="text-4xl font-black tracking-[-0.05em] text-[#f6f3ee]">{plan.price}</h3>
+                <span className="pb-1 text-sm font-bold text-zinc-600">/mo</span>
+              </div>
+              <div className="mt-8 space-y-4">
+                {plan.points.map((point) => (
+                  <div key={point} className="flex items-center gap-3 text-sm font-semibold text-zinc-500">
+                    <CheckCircle2 className="h-4 w-4 text-[#ff6b00]" />
+                    {point}
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="overflow-hidden rounded-full border border-white/10 bg-white/5 py-3">
-          <div className="marquee-track flex min-w-max items-center gap-10 px-6 text-sm uppercase tracking-[0.35em] text-zinc-400">
-            {Array.from({ length: 2 }).flatMap((_, pass) =>
-              ['Instant Replies', 'Smart Analytics', 'Orange Motion UI', 'Instagram Automation', 'Performance Tracking'].map((item) => (
-                <span key={`${pass}-${item}`} className="whitespace-nowrap">
-                  {item}
-                </span>
-              ))
-            )}
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="features"
-        className="perf-section relative z-10 mx-auto max-w-7xl px-4 py-10 md:px-8 md:py-16"
-      >
-        <div className="mb-10 max-w-2xl">
-          <p className="text-sm uppercase tracking-[0.25em] text-[#ffb36a]">
-            Feature Layer
-          </p>
-          <h2 className="mt-3 text-4xl font-semibold text-white md:text-5xl">
-            A sharper visual system for a faster Instagram growth workflow.
-          </h2>
-        </div>
-
-        <div className="grid gap-5 lg:grid-cols-3">
-          {featureCards.map((feature, index) => (
-            <Card
-              key={feature.title}
-              className={`reveal-up border-white/10 bg-white/5 backdrop-blur-xl reveal-delay-${Math.min(index + 1, 4)}`}
-            >
-              <CardContent className="space-y-5 p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ef7d32]/12">
-                  {feature.icon}
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-semibold text-white">{feature.title}</h3>
-                  <p className="leading-7 text-zinc-300">{feature.description}</p>
-                </div>
-              </CardContent>
-            </Card>
+              <Link
+                href={plan.featured ? '/sign-up' : '/pricing'}
+                className={`mt-12 inline-flex h-11 w-full items-center justify-center border text-xs font-black transition ${
+                  plan.featured
+                    ? 'border-[#ff6b00] bg-[#ff6b00] text-black hover:bg-[#ff7f1a]'
+                    : 'border-white/[0.07] text-zinc-300 hover:border-white/[0.16] hover:text-white'
+                }`}
+              >
+                {plan.cta}
+              </Link>
+            </article>
           ))}
         </div>
       </section>
 
-      <section
-        id="analytics"
-        className="perf-section relative z-10 mx-auto grid max-w-7xl gap-6 px-4 py-10 md:px-8 md:py-16 lg:grid-cols-[0.9fr_1.1fr]"
-      >
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-          <p className="text-sm uppercase tracking-[0.25em] text-[#ffb36a]">
-            Analytics First
-          </p>
-          <h2 className="mt-3 text-4xl font-semibold text-white">
-            Make account posts and engagement understandable in seconds.
+      <section className="px-5 pb-28 md:px-8">
+        <div className="mac-cta mx-auto max-w-5xl px-6 py-16 text-center md:px-12">
+          <h2 className="text-4xl font-black tracking-[-0.05em] text-[#f6f3ee] md:text-5xl">
+            Ready to scale your engagement?
           </h2>
-          <p className="mt-5 max-w-xl text-base leading-8 text-zinc-300">
-            imate surfaces account activity, automated replies, and post engagement in one dashboard so users can instantly spot what is performing and what needs attention.
+          <p className="mx-auto mt-5 max-w-xl text-sm font-medium leading-6 text-zinc-500">
+            Join the top 1% of Instagram creators who use automation to reclaim their
+            time and increase their revenue.
           </p>
-          <div className="mt-8 space-y-4">
-            {[
-              'Track engagement across recent posts without digging through Instagram manually',
-              'Compare automated replies against real audience activity month by month',
-              'Highlight top-performing content and the automation coverage behind it',
-            ].map((item) => (
-              <div key={item} className="flex items-start gap-3">
-                <div className="mt-1 rounded-full bg-[#ef7d32]/15 p-1.5">
-                  <Check className="h-3.5 w-3.5 text-[#ffb36a]" />
-                </div>
-                <p className="text-zinc-300">{item}</p>
-              </div>
-            ))}
-          </div>
+          <Link
+            href="/sign-up"
+            className="mt-10 inline-flex h-12 items-center justify-center bg-[#ff6b00] px-8 text-sm font-black text-black transition hover:bg-[#ff7f1a]"
+          >
+            Start Your Free 14-Day Trial
+          </Link>
+          <p className="mt-6 text-[10px] font-black uppercase tracking-[0.18em] text-zinc-700">
+            No credit card required - instant setup
+          </p>
         </div>
+      </section>
 
-        <div className="grid gap-5 sm:grid-cols-2">
-          <div className="rounded-[2rem] border border-white/10 bg-[#16110d] p-6">
-            <p className="text-sm text-zinc-400">Audience Pulse</p>
-            <p className="mt-4 text-5xl font-semibold text-white">+38%</p>
-            <p className="mt-3 text-sm leading-7 text-zinc-300">
-              Better engagement visibility with clearer dashboards, richer post summaries, and smoother workflow feedback.
+      <footer className="border-t border-white/[0.035] bg-[#050505] px-5 py-20 md:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[1fr_16rem]">
+          <div>
+            <p className="text-sm font-black text-white">macStudio</p>
+            <p className="mt-6 max-w-xs text-xs font-medium leading-6 text-zinc-600">
+              The premium automation engine for professional creators and digital agencies.
+              Frame your content with power.
             </p>
           </div>
-          <div className="rounded-[2rem] border border-white/10 bg-[#16110d] p-6">
-            <p className="text-sm text-zinc-400">Workflow Coverage</p>
-            <p className="mt-4 text-5xl font-semibold text-white">24/7</p>
-            <p className="mt-3 text-sm leading-7 text-zinc-300">
-              Automations stay in sync with DMs and comments while keeping the visual experience premium and modern.
-            </p>
-          </div>
-          <div className="rounded-[2rem] border border-white/10 bg-[#16110d] p-6 sm:col-span-2">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-zinc-400">Design Direction</p>
-                <h3 className="mt-2 text-2xl font-semibold text-white">
-                  Warm orange signals, layered glass panels, and motion that feels intentional.
-                </h3>
-              </div>
-              <div className="hidden h-20 w-20 rounded-full bg-[radial-gradient(circle,#ef7d32_0%,rgba(239,125,50,0.12)_65%,transparent_100%)] md:block" />
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-zinc-600">Support</p>
+            <div className="mt-6 grid gap-4 text-xs font-semibold text-zinc-600">
+              <Link href="/features">Documentation</Link>
+              <Link href="/features">Help Center</Link>
+              <Link href="/pricing">Privacy Policy</Link>
+              <Link href="/pricing">Terms of Service</Link>
             </div>
           </div>
         </div>
-      </section>
-
-      <section
-        id="pricing"
-        className="perf-section relative z-10 mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20"
-      >
-        <div className="mb-12 text-center">
-          <p className="text-sm uppercase tracking-[0.25em] text-[#ffb36a]">
-            Pricing
+        <div className="mx-auto mt-20 flex max-w-7xl items-center justify-between border-t border-white/[0.035] pt-8">
+          <p className="text-[10px] font-black uppercase tracking-[0.12em] text-zinc-700">
+            © 2024 Made by MacStudio. All rights reserved.
           </p>
-          <h2 className="mt-3 text-4xl font-semibold text-white md:text-5xl">
-            Choose the imate plan that matches your Instagram momentum.
-          </h2>
+          <div className="flex gap-5 text-zinc-700">
+            <Camera className="h-4 w-4" />
+            <Share2 className="h-4 w-4" />
+            <MousePointer2 className="h-4 w-4" />
+          </div>
         </div>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {plans.map((plan) => (
-            <Card
-              key={plan.name}
-              className={`overflow-hidden border-white/10 bg-white/5 backdrop-blur-xl ${
-                plan.highlighted
-                  ? 'shadow-[0_20px_60px_rgba(239,125,50,0.18)] ring-1 ring-[#ef7d32]/30'
-                  : ''
-              }`}
-            >
-              <CardContent className="p-8">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="text-2xl font-semibold text-white">{plan.name}</p>
-                    <p className="mt-3 max-w-sm text-sm leading-7 text-zinc-300">
-                      {plan.description}
-                    </p>
-                  </div>
-                  {plan.highlighted && (
-                    <Badge className="bg-[#ef7d32] text-white hover:bg-[#ef7d32]">
-                      Popular
-                    </Badge>
-                  )}
-                </div>
-
-                <div className="mt-8 flex items-end gap-2">
-                  <span className="text-5xl font-semibold text-white">${plan.price}</span>
-                  <span className="pb-1 text-zinc-400">/month</span>
-                </div>
-
-                <div className="mt-8 space-y-4">
-                  {plan.features.map((feature) => (
-                    <div key={feature} className="flex items-start gap-3">
-                      <div className="rounded-full bg-[#ef7d32]/12 p-1.5">
-                        <Check className="h-3.5 w-3.5 text-[#ffb36a]" />
-                      </div>
-                      <p className="text-sm text-zinc-200">{feature}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <Button
-                  asChild
-                  className={`mt-10 w-full rounded-full ${
-                    plan.highlighted
-                      ? 'bg-[#ef7d32] text-white hover:bg-[#db6b22]'
-                      : 'bg-white/10 text-white hover:bg-white/15'
-                  }`}
-                >
-                  <Link href="/sign-up">Get Started</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
+      </footer>
     </main>
   )
 }
