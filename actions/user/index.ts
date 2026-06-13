@@ -55,9 +55,11 @@ export const onBoardUser = async () => {
     }
     const created = await createUser(
       user.id,
-      user.firstName!,
-      user.lastName!,
-      user.emailAddresses[0].emailAddress
+      user.firstName?.trim() || null,
+      user.lastName?.trim() || null,
+      user.primaryEmailAddress?.emailAddress ||
+        user.emailAddresses[0]?.emailAddress ||
+        `${user.id}@clerk.local`
     )
     return { status: 201, data: created }
   } catch (error) {

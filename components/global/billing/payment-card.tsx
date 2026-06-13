@@ -14,16 +14,14 @@ const PaymentCard = ({ current, label, landing }: Props) => {
   return (
     <div
       className={cn(
-        label !== current
-          ? 'imate-card-muted'
-          : 'orange-gradient',
-        'p-[1px] rounded-[1.9rem] overflow-hidden'
+        'overflow-hidden rounded border p-[1px]',
+        label === current ? 'border-[#ff6b00]/70 bg-[#ff6b00]' : 'border-white/[0.055] bg-[#202020]'
       )}
     >
       <div
         className={cn(
           landing && 'radial--gradient--pink',
-          'flex flex-col rounded-[1.85rem] px-6 py-6 bg-[#0d0d0d] h-full'
+          'flex h-full flex-col rounded-[3px] bg-[#111] px-6 py-6'
         )}
       >
         {landing ? (
@@ -32,7 +30,7 @@ const PaymentCard = ({ current, label, landing }: Props) => {
             {label === 'FREE' && 'Standard'}
           </h2>
         ) : (
-          <h2 className="text-2xl text-white">
+          <h2 className="text-2xl font-semibold text-white">
             {label === current
               ? 'Your Current Plan'
               : current === 'PRO'
@@ -40,30 +38,30 @@ const PaymentCard = ({ current, label, landing }: Props) => {
               : 'Upgrade'}
           </h2>
         )}
-        <p className="text-zinc-400 text-sm mb-2">
-          This is what your plan covers for automations and Ai features
+        <p className="mb-3 mt-2 text-sm leading-6 text-zinc-600">
+          This is what your plan covers for automations and AI features.
         </p>
         {label === 'PRO' ? (
-          <span className="bg-gradient-to-r text-3xl from-[#ef7d32] via-[#ff974f] font-bold to-[#ffb36a] bg-clip-text text-transparent">
+          <span className="text-3xl font-black text-[#ff6b00]">
             Smart AI
           </span>
         ) : (
-          <p className="font-bold mt-2 text-zinc-300">Standard</p>
+          <p className="mt-2 font-bold text-zinc-300">Standard</p>
         )}
         {label === 'PRO' ? (
-          <p className="mb-2 text-white">
+          <p className="mb-3 mt-2 text-white">
             <b className="text-xl">$99</b>/month
           </p>
         ) : (
-          <p className="text-xl mb-2 text-white">Free</p>
+          <p className="mb-3 mt-2 text-xl text-white">Free</p>
         )}
 
         {PLANS[label === 'PRO' ? 1 : 0].features.map((i) => (
           <p
             key={i}
-            className="mt-2 text-zinc-300 flex gap-2 "
+            className="mt-3 flex gap-2 text-sm text-zinc-300"
           >
-            <CircleCheck className="text-[#ef7d32]" />
+            <CircleCheck className="h-5 w-5 shrink-0 text-[#ff6b00]" />
             {i}
           </p>
         ))}
@@ -71,9 +69,9 @@ const PaymentCard = ({ current, label, landing }: Props) => {
         {landing ? (
           <Button
             className={cn(
-              'rounded-full mt-6',
+              'mt-6 rounded',
               label === 'PRO'
-                ? 'orange-gradient text-white'
+                ? 'bg-[#ff6b00] text-black hover:bg-[#ff7a1a]'
                 : 'bg-white/10 text-white hover:bg-white/15 hover:text-white'
             )}
           >
@@ -85,7 +83,7 @@ const PaymentCard = ({ current, label, landing }: Props) => {
           </Button>
         ) : (
           <Button
-            className="rounded-full mt-6 bg-white/10 text-white hover:bg-white/15 hover:text-white"
+            className="mt-6 rounded bg-white/10 text-white hover:bg-white/15 hover:text-white"
             disabled={label === current}
           >
             {label === current

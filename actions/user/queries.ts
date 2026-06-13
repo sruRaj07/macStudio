@@ -27,16 +27,30 @@ export const findUser = async (clerkId: string) => {
 
 export const createUser = async (
   clerkId: string,
-  firstname: string,
-  lastname: string,
+  firstname: string | null,
+  lastname: string | null,
   email: string
 ) => {
-  return await client.user.create({
-    data: {
+  return await client.user.upsert({
+    where: {
       clerkId,
+    },
+    update: {
+      email,
       firstname,
       lastname,
+      subscription: {
+        upsert: {
+          create: {},
+          update: {},
+        },
+      },
+    },
+    create: {
+      clerkId,
       email,
+      firstname,
+      lastname,
       subscription: {
         create: {},
       },

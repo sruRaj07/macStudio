@@ -5,19 +5,17 @@ import React, { useMemo } from 'react'
 import Loader from '../loader'
 import { useCreateAutomation } from '@/hooks/use-automations'
 import { v4 } from 'uuid'
-import { Plus } from 'lucide-react'
+import { SquarePlus } from 'lucide-react'
 
 type Props = {}
 
 const CreateAutomation = (props: Props) => {
   const mutationId = useMemo(() => v4(), [])
-
-  console.log(mutationId)
   const { isPending, mutate } = useCreateAutomation(mutationId)
 
   return (
     <Button
-      className="h-11 rounded bg-[#ff6b00] px-8 text-base font-medium uppercase text-black shadow-[0_0_28px_rgba(255,107,0,0.34)] hover:bg-[#ff7a14]"
+      className="h-13 rounded-xl bg-[#F5A623] px-8 text-base font-black text-black shadow-[0_0_28px_rgba(245,166,35,0.24)] hover:bg-[#f8b541]"
       onClick={() =>
         mutate({
           name: 'Untitled',
@@ -28,8 +26,8 @@ const CreateAutomation = (props: Props) => {
       }
     >
       <Loader state={isPending}>
-        <Plus className="h-5 w-5" />
-        <p className="hidden lg:inline">Create an Automation</p>
+        <SquarePlus className="h-5 w-5" />
+        <p className="hidden lg:inline">New Automation</p>
       </Loader>
     </Button>
   )

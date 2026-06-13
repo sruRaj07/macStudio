@@ -1,4 +1,5 @@
 import AutomationList from '@/components/global/automation-list'
+import CreateAutomation from '@/components/global/create-automation'
 import Link from 'next/link'
 import { Rocket } from 'lucide-react'
 
@@ -14,16 +15,35 @@ export default function Page() {
         </div>
 
         <div className="flex flex-wrap items-center gap-4">
+          <button type="button" className="mac-automation-filter">Filter</button>
           <div className="mac-automation-tabs">
             <button type="button" className="is-active">All</button>
             <button type="button">Active</button>
             <button type="button">Drafts</button>
           </div>
-          <button type="button" className="mac-automation-filter">Filter</button>
+          <CreateAutomation />
         </div>
       </header>
 
-      <section className="mt-32">
+      <section className="mt-20 grid gap-4 md:grid-cols-4">
+        {[
+          ['Total Triggers', '14,208 this month'],
+          ['Avg CTR', '23.3%'],
+          ['Active Nodes', '14 running'],
+          ['Data Quality', '99.8%'],
+        ].map(([label, value]) => (
+          <div key={label} className="mac-automation-stat">
+            <p>{label}</p>
+            <strong>{value}</strong>
+          </div>
+        ))}
+      </section>
+
+      <section className="mt-8">
+        <div className="mb-5 flex items-center justify-between">
+          <h2 className="text-lg font-medium text-zinc-300">Active Automations</h2>
+          <p className="text-sm text-zinc-600">2 Running</p>
+        </div>
         <AutomationList />
       </section>
 
